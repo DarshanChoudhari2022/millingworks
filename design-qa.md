@@ -51,5 +51,21 @@
 ## Comparison History
 
 - Iteration 1: identified one P1 hero-composition mismatch and two P2 color/mobile-control mismatches. Fixes pending.
+- Iteration 2: changed the primary panel from 50% to approximately 40% of the desktop hero, increased its height to about 680px, reduced headline density, and changed the central image to a taller contained presentation. The complete implant base and all three technicians are now visible. Side panels now use a softer laboratory blue, and the 390px floating controls are 48px and vertically stacked. Post-fix browser evidence: `evidence/design-qa/home-desktop-iteration-2-iab.png`, `evidence/design-qa/home-mobile-iteration-2.png`, and `evidence/design-qa/desktop-side-by-side-iteration-2.png`. Focused E2E 3/3, unit 40/40, full E2E 42/42, and production build passed.
 
-final result: blocked
+## Final Findings
+
+- P0/P1/P2: none remaining.
+- P3: the miniature technicians sit slightly behind the supporting copy and CTA rather than in a fully separate visual band. This is acceptable because the figures remain visible, the main conversion action stays readable, and the reference's central narrative and hierarchy are preserved.
+
+## Final Fidelity Assessment
+
+- Fonts and typography: passed. The revised hero scale is close to the source and remains readable at desktop and mobile sizes.
+- Spacing and layout rhythm: passed. Tall centre-card dominance, side-card overlap, rounded geometry, and responsive stacking are preserved.
+- Colors and visual tokens: passed. Mint/lime framing and softer blue side panels now match the approved art direction.
+- Image quality and asset fidelity: passed. Original generated raster assets remain sharp, correctly masked, and fully represented after WebP optimization.
+- Copy and content: passed. Milling Works copy is original, coherent, and appropriate for a B2B dental audience.
+- Icons and interactions: passed. Phosphor icon treatment is consistent; mobile persistent controls no longer obscure a broad content area.
+- Accessibility and responsiveness: passed. Browser tests cover keyboard navigation, focus restoration, announced validation, reduced-motion behavior, horizontal overflow, and all target routes.
+
+final result: passed
