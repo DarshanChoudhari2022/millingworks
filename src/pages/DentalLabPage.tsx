@@ -28,42 +28,42 @@ const usps = [
   {
     Icon: CurrencyDollar,
     title: 'Unbeatable Pricing',
-    desc: 'Prices 30–100% lower than competitors without compromising quality.',
+    desc: 'Our lab offers prices 30%–100% lower than competitors, without compromising on quality.',
   },
   {
     Icon: Clock,
     title: 'Fast Turnaround',
-    desc: 'Receive completed restorations in less than 10 working days.',
+    desc: 'Receive your restorations in less than 10 days.',
   },
   {
     Icon: Certificate,
     title: 'Trusted Since 1995',
-    desc: 'ISO and FDA certified, delivering excellence for nearly three decades.',
+    desc: 'ISO and FDA certified, our lab has been delivering excellence for nearly three decades.',
   },
   {
     Icon: DiamondsFour,
     title: 'Premium Restorations',
-    desc: 'Consistently high quality using the finest European-imported materials.',
+    desc: 'Consistently high-quality restorations and prosthetics made with the finest imported materials.',
   },
   {
     Icon: Scan,
     title: 'Cutting-Edge Technology',
-    desc: 'Advanced CAD/CAM, 3D printing, and digital scanning for precision.',
+    desc: 'Equipped with advanced CAD/CAM systems, 3D printing, latest milling machines and digital scanning for precision and efficiency.',
   },
   {
     Icon: Headset,
     title: 'Dedicated Support',
-    desc: 'Relationship Manager and direct access to the Lab Head for every case.',
+    desc: 'Enjoy clear communication with a dedicated Relationship Manager and direct access to the Lab Head.',
   },
   {
     Icon: Sliders,
     title: 'Tailored Solutions',
-    desc: 'Customised treatment plans for each case to ensure the best clinical outcomes.',
+    desc: 'Customized treatment plans for each case to ensure the best clinical outcomes.',
   },
   {
     Icon: Virus,
     title: 'Comprehensive Services',
-    desc: 'Crowns, bridges, dentures, implants, orthodontic appliances — all in one lab.',
+    desc: 'We offer a wide range of services, including crowns, bridges, dentures, implants, and orthodontic appliances.',
   },
 ] as const
 
@@ -71,121 +71,122 @@ const usps = [
 const categories = [
   {
     Icon: Tooth,
-    title: 'Custom Restorations',
+    title: '1. Custom Restorations',
     eyebrow: 'Crowns · Bridges · Inlays · Onlays',
     items: [
       {
-        name: 'Crowns & Bridges',
-        desc: 'Fabrication of custom crowns and bridges using porcelain, zirconia, and metal alloys, matched precisely to the prescription.',
+        name: 'Crowns and Bridges',
+        desc: 'Fabrication of custom crowns and bridges using various materials, including porcelain, zirconia, and metal alloys.',
       },
       {
-        name: 'Inlays & Onlays',
-        desc: 'Precision inlays and onlays to restore damaged teeth while conserving maximum healthy tooth structure.',
+        name: 'Inlays and Onlays',
+        desc: 'Precision-crafted inlays and onlays that match the tooth’s shade and fit perfectly, providing both functionality and aesthetics.',
       },
     ],
   },
   {
     Icon: Cube,
-    title: 'Implant Solutions',
+    title: '2. Implant Solutions',
     eyebrow: 'Abutments · Hybrids · Overdentures',
     items: [
       {
         name: 'Implant Supported Prosthetics',
-        desc: 'Custom abutments, screw-retained crowns, and multi-unit implant bridges engineered for long-term stability.',
+        desc: 'Design and manufacture of full-arch restorations and individual crowns to fit on implants, tailored to each patient’s anatomy.',
       },
       {
-        name: 'Overdentures & Fixed Hybrids',
-        desc: 'Fully-fixed hybrid arches and removable overdentures providing comfort and function for full-arch restorations.',
+        name: 'Overdentures and Fixed Hybrid Solutions',
+        desc: 'Creation of overdentures and hybrid prosthetics that offer improved stability and comfort for implant patients.',
       },
     ],
   },
   {
     Icon: Sparkle,
-    title: 'Aesthetic Enhancements',
+    title: '3. Aesthetic Enhancements',
     eyebrow: 'Veneers · Cosmetic Bonding',
     items: [
       {
         name: 'Veneers',
-        desc: 'E-max and zirconia veneers crafted for high-end aesthetics, delivering natural translucency and exceptional strength.',
+        desc: 'Custom-made porcelain veneers to enhance the appearance of teeth, addressing issues like discoloration, chips, and misalignment.',
       },
       {
         name: 'Cosmetic Bonding',
-        desc: 'High-precision composite restorations for minimally invasive smile improvements with natural-looking results.',
+        desc: 'Tailored composite resin bonding solutions for aesthetic corrections that blend seamlessly with natural teeth.',
       },
     ],
   },
   {
     Icon: GraduationCap,
-    title: 'Orthodontic Appliances',
+    title: '4. Orthodontic Appliances',
     eyebrow: 'Retainers · Functional Devices',
     items: [
       {
         name: 'Retainers',
-        desc: 'Essix, Hawley, and fixed retainers designed for post-treatment retention with comfortable, accurate fit.',
+        desc: 'Custom-designed retainers for post-orthodontic treatment, available in both clear and traditional styles.',
       },
       {
         name: 'Functional Appliances',
-        desc: 'Devices designed to correct jaw positioning and teeth alignment, adjustable throughout the course of treatment.',
+        desc: 'Fabrication of devices designed to correct jaw positioning and teeth alignment, which can be adjusted throughout the treatment.',
       },
     ],
   },
   {
     Icon: Scan,
-    title: 'Digital Dentistry',
+    title: '5. Digital Dentistry',
+    subtitle: 'A cost effective service that we can provide to dental Labs too',
     eyebrow: 'CAD/CAM · Digital Impressions',
     items: [
       {
         name: 'CAD/CAM Technology',
-        desc: 'Fully-digitised design and milling workflow eliminating manual errors and ensuring sub-micron precision in every restoration.',
+        desc: 'Integration of advanced computer-aided design and manufacturing (CAD/CAM) processes for efficient, precise restoration fabrication.',
       },
       {
         name: 'Digital Impressions',
-        desc: 'Seamless integration with intraoral scanner files from 3Shape, iTero, Medit, and other leading systems.',
+        desc: 'Utilizing digital scanning technology to capture accurate dental impressions, enhancing comfort and accuracy for patients.',
       },
     ],
   },
   {
     Icon: Factory,
-    title: 'Prosthetics',
+    title: '6. Prosthetics',
     eyebrow: 'Full · Partial · Immediate Dentures',
     items: [
       {
-        name: 'Full & Partial Dentures',
-        desc: 'Acrylic, chrome cobalt, and flexible dentures manufactured to achieve optimal fit, function, and aesthetics.',
+        name: 'Full and Partial Dentures',
+        desc: 'Tailored full and partial dentures created with high-quality materials that prioritize fit and comfort, as well as aesthetic appeal.',
       },
       {
         name: 'Immediate Dentures',
-        desc: 'Temporary and immediate-placement prosthetics allowing patients to leave the chair with a functional smile.',
+        desc: 'Offering immediate dentures that can be placed right after extraction, ensuring patients do not go without teeth.',
       },
     ],
   },
   {
     Icon: Detective,
-    title: 'Orthotic & Surgical Guides',
+    title: '7. Orthotic and Surgical Guides',
     eyebrow: 'Surgical Guides · Oral Appliances',
     items: [
       {
         name: 'Surgical Guides',
-        desc: 'Guided surgery templates for accurate implant placement, reducing operative time and improving predictability.',
+        desc: 'Precision surgical guides for implant placement, improving clinical outcomes through better accuracy.',
       },
       {
         name: 'Oral Appliances',
-        desc: 'Nightguards, occlusal splints, and anti-snoring devices fabricated for comfort and long-term wear.',
+        desc: 'Development of custom oral appliances for sleep apnea/ contact sport and other conditions, enhancing patient comfort and health.',
       },
     ],
   },
   {
     Icon: MagnifyingGlass,
-    title: 'Quality Assurance & Support',
+    title: '8. Quality Assurance and Support',
     eyebrow: 'Quality Control · Case Consultation',
     items: [
       {
-        name: 'Multi-Stage Quality Control',
-        desc: 'Every case checked at multiple stages against the digital prescription before dispatch — zero compromise on specification.',
+        name: 'Quality Control',
+        desc: 'Rigorous quality control processes to ensure that every product meets or exceeds industry standards.',
       },
       {
         name: 'Case Consultation',
-        desc: 'Direct consultation with your dedicated Relationship Manager and the Lab Head for complex or high-stakes cases.',
+        desc: 'Providing professional support and consultation for dental practices, helping them choose the best solutions for their patients.',
       },
     ],
   },
@@ -227,6 +228,11 @@ export function DentalLabPage(): JSX.Element {
         <div className="interior-section__intro">
           <p className="eyebrow">Why Milling Works</p>
           <h2>Built for clinical excellence, designed for your practice</h2>
+          <p style={{ marginBottom: '1.25rem', fontSize: '1.05rem', lineHeight: '1.7' }}>
+            We currently help Dental practices in the UK &amp; Ireland source dental lab services from India 
+            at prices significantly lower than that of UK/Irish Labs. Our Lab is ISO and FDA certified and we 
+            provide a full range of products from Crowns &amp; Veneers to Implant solutions.
+          </p>
           <p>
             Everything we do is shaped around one goal — giving you restorations that fit first time,
             every time, at a price that makes sense for your practice.
@@ -252,32 +258,43 @@ export function DentalLabPage(): JSX.Element {
             <p className="eyebrow">Clinical scope</p>
             <h2>Eight categories. One trusted lab.</h2>
             <p>
-              From a single crown to a full-arch fixed hybrid, every case type is handled through
-              structured workflows with the same exacting standards.
+              Our world-class ISO, FDA certified dental lab is dedicated to providing state-of-the-art services 
+              that cater to the diverse needs of dental professionals and their patients. Utilizing the latest 
+              technologies and imported materials, the Labs focuses on quality, precision, and aesthetics. 
+              Here is a comprehensive overview of the products offered:
             </p>
           </div>
           <div className="dl-categories-grid">
-            {categories.map(({ Icon, title, eyebrow, items }) => (
-              <article className="dl-category-card" key={title}>
-                <header className="dl-category-card__header">
-                  <span className="dl-category-card__icon">
-                    <Icon aria-hidden size={22} weight="duotone" />
-                  </span>
-                  <div>
-                    <p className="dl-category-card__eyebrow">{eyebrow}</p>
-                    <h3>{title}</h3>
-                  </div>
-                </header>
-                <ul className="dl-category-card__items">
-                  {items.map(({ name, desc }) => (
-                    <li key={name}>
-                      <strong>{name}</strong>
-                      <span>{desc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+            {categories.map((category) => {
+              const { Icon, title, eyebrow, items } = category
+              const subtitle = 'subtitle' in category ? category.subtitle : undefined
+              return (
+                <article className="dl-category-card" key={title}>
+                  <header className="dl-category-card__header">
+                    <span className="dl-category-card__icon">
+                      <Icon aria-hidden size={22} weight="duotone" />
+                    </span>
+                    <div>
+                      <p className="dl-category-card__eyebrow">{eyebrow}</p>
+                      <h3>{title}</h3>
+                      {subtitle && (
+                        <p className="dl-category-card__subtitle" style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.6)', marginTop: '4px', fontStyle: 'italic' }}>
+                          ({subtitle})
+                        </p>
+                      )}
+                    </div>
+                  </header>
+                  <ul className="dl-category-card__items">
+                    {items.map(({ name, desc }) => (
+                      <li key={name}>
+                        <strong>{name}</strong>
+                        <span>{desc}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              )
+            })}
           </div>
         </div>
       </section>
@@ -313,6 +330,28 @@ export function DentalLabPage(): JSX.Element {
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* ── Logistics & Materials ─────────────────────────── */}
+      <section className="section shell">
+        <div className="feature-grid feature-grid--two" style={{ background: 'rgba(255,255,255,0.03)', padding: '36px', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.08)', gap: '32px' }}>
+          <div>
+            <h3 style={{ fontSize: '1.35rem', color: 'var(--white)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <Truck size={24} weight="duotone" style={{ color: 'var(--lime)' }} /> Delivery Timelines
+            </h3>
+            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.925rem', lineHeight: '1.65', margin: 0 }}>
+              Our logistics partners such as UPS, DHL etc. assure us of a five-day door-to-door delivery anywhere in Europe.
+            </p>
+          </div>
+          <div>
+            <h3 style={{ fontSize: '1.35rem', color: 'var(--white)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <Sparkle size={24} weight="duotone" style={{ color: 'var(--lime)' }} /> European Quality Imports
+            </h3>
+            <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.925rem', lineHeight: '1.65', margin: 0 }}>
+              Our labs import the best of chemicals and dental materials from Europe to give you products that meet your exact quality and aesthetic standards.
+            </p>
+          </div>
         </div>
       </section>
 
