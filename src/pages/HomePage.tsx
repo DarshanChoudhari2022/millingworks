@@ -81,19 +81,6 @@ export function HomePage(): JSX.Element {
                 src={centerLab}
               />
             </div>
-
-            {/* Rotating consultation badge */}
-            <Link to="/contact" className="rotating-badge-btn" aria-label="Book a Consultation">
-              <svg className="rotating-badge-btn__text" viewBox="0 0 100 100" aria-hidden>
-                <path d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" id="textPath" />
-                <text className="rotating-badge-btn__textpath">
-                  <textPath href="#textPath">GET A QUOTE • BOOK CONSULTATION • </textPath>
-                </text>
-              </svg>
-              <div className="rotating-badge-btn__center">
-                <ArrowRight size={21} className="rotating-badge-btn__arrow" aria-hidden />
-              </div>
-            </Link>
           </div>
 
           {/* ── Card 2: Implant Solutions + Stats ── */}
