@@ -9,7 +9,7 @@ afterEach(cleanup)
 const pages = [
   ['/about', 'Precision built on partnership', 'Meet the people behind Milling Works'],
   ['/services', 'Services that fit your workflow', 'Dental Design Support'],
-  ['/dental-lab', 'Full-Service Dental Lab', 'From review to delivery'],
+  ['/dental-lab', 'Full-Service Dental Lab', 'Eight categories. One trusted lab.'],
   ['/record-auditing', 'Record Auditing', 'Clear findings, configured checks'],
   ['/faqs', 'Frequently Asked Questions', 'Who does Milling Works support?'],
   ['/contact', 'Start a conversation', 'Tell us what you need'],
