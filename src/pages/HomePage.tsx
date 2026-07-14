@@ -51,7 +51,7 @@ export function HomePage(): JSX.Element {
         {/* Top tagline */}
         <p className="hero-tagline">
           <span className="hero-tagline__eyebrow">
-            Digital Dental Laboratory &nbsp;·&nbsp; Serving UK &amp; European Practices
+
           </span>
         </p>
 
