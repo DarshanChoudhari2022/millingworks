@@ -4,6 +4,7 @@ import { Outlet } from 'react-router-dom'
 import { SiteFooter } from './SiteFooter'
 import { SiteHeader } from './SiteHeader'
 import { WhatsAppButton } from '../ui/WhatsAppButton'
+import { Chatbot } from '../../chatbot/Chatbot'
 
 export function SiteLayout(): JSX.Element {
   return (
@@ -13,7 +14,7 @@ export function SiteLayout(): JSX.Element {
       <main id="main-content"><Outlet /></main>
       <SiteFooter />
       <WhatsAppButton />
-      <div aria-hidden className="chatbot-layer" data-chatbot-layer="reserved" />
+      <Chatbot />
     </>
   )
 }
