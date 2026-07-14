@@ -1,11 +1,12 @@
-import { ArrowDownRight, ArrowRight, GlobeHemisphereWest, LockKey, SealCheck } from '@phosphor-icons/react'
+import { ArrowDownRight, ArrowRight, GlobeHemisphereWest, List, LockKey, SealCheck } from '@phosphor-icons/react'
 import type { JSX } from 'react'
 import { Link } from 'react-router-dom'
 
+import avatarGroup from '../assets/avatar-group.webp'
 import centerLab from '../assets/hero-center-lab.webp'
 import crowns from '../assets/hero-crowns.webp'
+import drReed from '../assets/dr-reed.webp'
 import implant from '../assets/hero-implant.webp'
-import mintGrid from '../assets/hero-mint-grid.webp'
 import { CallToAction } from '../components/ui/CallToAction'
 import { ProcessSteps } from '../components/ui/ProcessSteps'
 import { SectionIntro } from '../components/ui/SectionIntro'
@@ -22,27 +23,107 @@ export function HomePage(): JSX.Element {
   return (
     <>
       <section className="hero" aria-labelledby="hero-title">
-        <img alt="" className="hero__grid" src={mintGrid} />
-        <div className="hero-panel hero-panel--primary">
-          <p className="hero-panel__kicker">Digital dental production</p>
-          <h1 id="hero-title">Precision Behind Every Smile</h1>
-          <p>Reliable laboratory, design, auditing, and outsourced workflow support—all aligned around your standards.</p>
-          <Link className="button button--light" to="/contact">Send a Case <ArrowRight aria-hidden size={20} /></Link>
-          <img alt="Dental technician working in a digital laboratory" src={centerLab} />
-        </div>
-        <div className="hero-panel hero-panel--implant">
-          <p className="hero-panel__kicker">Implant solutions</p>
-          <h2>Dental Implants</h2>
-          <p>Digitally coordinated restorations with precision at the connection.</p>
-          <img alt="Precision dental implant restoration" src={implant} />
-          <Link aria-label="Explore dental implant solutions" className="round-link" to="/dental-lab"><ArrowDownRight aria-hidden size={28} /></Link>
-        </div>
-        <div className="hero-panel hero-panel--crowns">
-          <p className="hero-panel__kicker">Restorative craft</p>
-          <h2>Dental Crowns</h2>
-          <p>Carefully finished ceramic restorations designed for confident delivery.</p>
-          <img alt="Premium ceramic dental crowns" src={crowns} />
-          <Link aria-label="Explore dental crown solutions" className="round-link" to="/dental-lab"><ArrowDownRight aria-hidden size={28} /></Link>
+        {/* Background Decorative Glows */}
+        <div className="hero-glow hero-glow--1" />
+        <div className="hero-glow hero-glow--2" />
+        
+        <div className="hero-cards-container">
+          
+          {/* Card 2: Restore Your True Smile */}
+          <div className="hero-panel hero-card hero-card--primary">
+            <div className="hero-card__header">
+              <span className="hero-card__brand">SmileLab</span>
+              <button className="hero-card__menu-btn" aria-label="Menu"><List size={22} /></button>
+            </div>
+            
+            <div className="hero-card__content">
+              <h1 id="hero-title" className="hero-card__title">Restore Your<br />True Smile</h1>
+            </div>
+            
+            <div className="hero-card__main-image-wrap">
+              <img alt="Dental technicians working on a giant white tooth" className="hero-card__main-image" src={centerLab} />
+            </div>
+            
+            {/* Circular Consultation Button */}
+            <Link to="/contact" className="rotating-badge-btn" aria-label="Book a Consultation">
+              <svg className="rotating-badge-btn__text" viewBox="0 0 100 100">
+                <path d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" id="textPath" />
+                <text className="rotating-badge-btn__textpath">
+                  <textPath href="#textPath">BOOK YOUR CONSULTATION • BOOK YOUR CONSULTATION • </textPath>
+                </text>
+              </svg>
+              <div className="rotating-badge-btn__center">
+                <ArrowRight size={22} className="rotating-badge-btn__arrow" />
+              </div>
+            </Link>
+          </div>
+
+          {/* Card 1: Dental Implants */}
+          <Link to="/dental-lab" aria-label="Explore dental implant solutions" className="hero-panel hero-card hero-card--implant">
+            <div className="hero-card__header">
+              <span className="hero-card__brand">SmileLab</span>
+              <span className="hero-card__menu-btn"><List size={22} /></span>
+            </div>
+            
+            <div className="hero-card__content">
+              <h2 className="hero-card__title">Dental<br />Implants</h2>
+              <p className="hero-card__copy">
+                Dental implants are our core expertise, performed with precision and long-term care.
+              </p>
+            </div>
+            
+            <img alt="Precision dental implant restoration" className="hero-card__image hero-card__image--implant" src={implant} />
+            
+            <div className="hero-card__footer">
+              <div className="hero-card__badge hero-card__badge--loyal">
+                <SealCheck weight="fill" size={16} className="hero-card__badge-icon" />
+                <span>98% loyal dental patients</span>
+              </div>
+              
+              <div className="hero-card__avatars">
+                <div className="avatar-stack">
+                  <img alt="Smiling patient profiles" src={avatarGroup} className="avatar-stack__image" />
+                  <span className="avatar-stack__label">+2k</span>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Card 3: Dental Crowns */}
+          <Link to="/dental-lab" aria-label="Explore dental crown solutions" className="hero-panel hero-card hero-card--crowns">
+            <div className="hero-card__header">
+              <span className="hero-card__brand">SmileLab</span>
+              <span className="hero-card__menu-btn"><List size={22} /></span>
+            </div>
+            
+            <div className="hero-card__content">
+              <h2 className="hero-card__title">Dental<br />Crowns</h2>
+              <p className="hero-card__copy">
+                Every dental crown is carefully designed for durability, function, and a confident smile.
+              </p>
+            </div>
+            
+            <img alt="Premium ceramic dental crowns" className="hero-card__image hero-card__image--crowns" src={crowns} />
+            
+            <div className="hero-card__footer">
+              <div className="doctor-card">
+                <img alt="Dr. Reed" src={drReed} className="doctor-card__avatar" />
+                <div className="doctor-card__info">
+                  <span className="doctor-card__name">Dr. Reed</span>
+                  <span className="doctor-card__experience">3+ Years Experience</span>
+                </div>
+              </div>
+              
+              <div className="hero-card__rating">
+                <div className="star-rating">
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <span key={s} className="star-rating__star">★</span>
+                  ))}
+                </div>
+                <span className="hero-card__reviews-count">311 reviews</span>
+              </div>
+            </div>
+          </Link>
         </div>
       </section>
 

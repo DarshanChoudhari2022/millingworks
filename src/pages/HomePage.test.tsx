@@ -17,7 +17,7 @@ describe('HomePage', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'Precision Behind Every Smile' }),
+      screen.getByRole('heading', { name: 'Restore Your True Smile' }),
     ).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Dental Implants' }),
@@ -36,7 +36,7 @@ describe('HomePage', () => {
       expect(link).toHaveAttribute('href', '/contact')
     }
     expect(
-      screen.getByRole('link', { name: 'Book a Consultation' }),
+      screen.getAllByRole('link', { name: 'Book a Consultation' })[0],
     ).toHaveAttribute('href', '/contact')
 
     const whatsappLink = screen.getByRole('link', {
@@ -72,12 +72,12 @@ describe('HomePage', () => {
     )
 
     const primaryPanel = screen
-      .getByRole('heading', { name: 'Precision Behind Every Smile' })
+      .getByRole('heading', { name: 'Restore Your True Smile' })
       .closest('.hero-panel')
     const implantPanel = screen
       .getByRole('heading', { name: 'Dental Implants' })
       .closest('.hero-panel')
-    const primaryLink = screen.getAllByRole('link', { name: 'Send a Case' })[1]
+    const primaryLink = screen.getAllByRole('link', { name: 'Book a Consultation' })[0]
     const implantLink = screen.getByRole('link', {
       name: 'Explore dental implant solutions',
     })
