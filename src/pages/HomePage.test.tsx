@@ -63,4 +63,34 @@ describe('HomePage', () => {
     expect(menuButton).toHaveAttribute('aria-expanded', 'true')
     expect(menuButton).toHaveAccessibleName('Close menu')
   })
+
+  it('places the primary hero content before the supporting panels in DOM order', () => {
+    render(
+      <MemoryRouter initialEntries={['/']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    const primaryPanel = screen
+      .getByRole('heading', { name: 'Precision Behind Every Smile' })
+      .closest('.hero-panel')
+    const implantPanel = screen
+      .getByRole('heading', { name: 'Dental Implants' })
+      .closest('.hero-panel')
+    const primaryLink = screen.getAllByRole('link', { name: 'Send a Case' })[1]
+    const implantLink = screen.getByRole('link', {
+      name: 'Explore dental implant solutions',
+    })
+
+    expect(primaryPanel).not.toBeNull()
+    expect(implantPanel).not.toBeNull()
+    expect(
+      primaryPanel!.compareDocumentPosition(implantPanel!) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy()
+    expect(
+      primaryLink.compareDocumentPosition(implantLink) &
+        Node.DOCUMENT_POSITION_FOLLOWING,
+    ).toBeTruthy()
+  })
 })

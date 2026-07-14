@@ -96,7 +96,7 @@
   .site-navigation .button { margin-top: 4px; }
   .hero { display: grid; min-height: auto; gap: 16px; padding: 18px; overflow: visible; }
   .hero-panel { position: relative; inset: auto; width: 100%; min-height: 510px; transform: none; }
-  .hero-panel--primary { order: -1; min-height: 620px; padding: 42px 30px; }
+  .hero-panel--primary { min-height: 620px; padding: 42px 30px; }
   .hero-panel--implant, .hero-panel--crowns { padding: 34px 28px; }
   .hero-panel--implant img, .hero-panel--crowns img { height: 65%; }
   .section-intro { grid-template-columns: 1fr; gap: 10px; }

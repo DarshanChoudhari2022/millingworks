@@ -23,19 +23,19 @@ export function HomePage(): JSX.Element {
     <>
       <section className="hero" aria-labelledby="hero-title">
         <img alt="" className="hero__grid" src={mintGrid} />
-        <div className="hero-panel hero-panel--implant">
-          <p className="hero-panel__kicker">Implant solutions</p>
-          <h2>Dental Implants</h2>
-          <p>Digitally coordinated restorations with precision at the connection.</p>
-          <img alt="Precision dental implant restoration" src={implant} />
-          <Link aria-label="Explore dental implant solutions" className="round-link" to="/dental-lab"><ArrowDownRight aria-hidden size={28} /></Link>
-        </div>
         <div className="hero-panel hero-panel--primary">
           <p className="hero-panel__kicker">Digital dental production</p>
           <h1 id="hero-title">Precision Behind Every Smile</h1>
           <p>Reliable laboratory, design, auditing, and outsourced workflow support—all aligned around your standards.</p>
           <Link className="button button--light" to="/contact">Send a Case <ArrowRight aria-hidden size={20} /></Link>
           <img alt="Dental technician working in a digital laboratory" src={centerLab} />
+        </div>
+        <div className="hero-panel hero-panel--implant">
+          <p className="hero-panel__kicker">Implant solutions</p>
+          <h2>Dental Implants</h2>
+          <p>Digitally coordinated restorations with precision at the connection.</p>
+          <img alt="Precision dental implant restoration" src={implant} />
+          <Link aria-label="Explore dental implant solutions" className="round-link" to="/dental-lab"><ArrowDownRight aria-hidden size={28} /></Link>
         </div>
         <div className="hero-panel hero-panel--crowns">
           <p className="hero-panel__kicker">Restorative craft</p>
