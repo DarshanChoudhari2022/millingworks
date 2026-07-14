@@ -1,10 +1,10 @@
 import {
   ArrowUpRight,
-  Buildings,
-  ChartBar,
   Check,
   Cpu,
+  Tooth,
   Wrench,
+  FirstAid,
 } from '@phosphor-icons/react'
 import type { ComponentType, JSX } from 'react'
 import { Link } from 'react-router-dom'
@@ -12,10 +12,10 @@ import { Link } from 'react-router-dom'
 import type { Service } from '../../content/services'
 
 const iconMap: Record<string, ComponentType<{ size?: number; 'aria-hidden'?: boolean }>> = {
-  'dental-lab': Cpu,
-  'record-auditing': ChartBar,
-  'dental-design-support': Wrench,
-  'practice-outsourcing': Buildings,
+  'crowns-bridges': Cpu,
+  'implant-restorations': Tooth,
+  'veneers-inlays': Wrench,
+  'full-arch-prosthetics': FirstAid,
 }
 
 export function ServiceCard({ service, index }: { service: Service; index: number }): JSX.Element {
@@ -42,7 +42,7 @@ export function ServiceCard({ service, index }: { service: Service; index: numbe
       </ul>
 
       <Link to={service.href}>
-        Explore service <ArrowUpRight aria-hidden size={17} />
+        Learn more <ArrowUpRight aria-hidden size={17} />
       </Link>
     </article>
   )

@@ -1,4 +1,4 @@
-import type { RouteObject } from 'react-router-dom'
+import { Navigate, type RouteObject } from 'react-router-dom'
 
 import { SiteLayout } from '../components/layout/SiteLayout'
 import { HomePage } from '../pages/HomePage'
@@ -7,8 +7,6 @@ import { AboutPage } from '../pages/AboutPage'
 import { ContactPage } from '../pages/ContactPage'
 import { DentalLabPage } from '../pages/DentalLabPage'
 import { FaqPage } from '../pages/FaqPage'
-import { RecordAuditingPage } from '../pages/RecordAuditingPage'
-import { ServicesPage } from '../pages/ServicesPage'
 
 export const appRoutes: RouteObject[] = [
   {
@@ -16,11 +14,12 @@ export const appRoutes: RouteObject[] = [
     children: [
       { index: true, element: <HomePage /> },
       { path: '/about', element: <AboutPage /> },
-      { path: '/services', element: <ServicesPage /> },
       { path: '/dental-lab', element: <DentalLabPage /> },
-      { path: '/record-auditing', element: <RecordAuditingPage /> },
       { path: '/faqs', element: <FaqPage /> },
       { path: '/contact', element: <ContactPage /> },
+      /* Redirects for removed pages */
+      { path: '/services', element: <Navigate to="/dental-lab" replace /> },
+      { path: '/record-auditing', element: <Navigate to="/dental-lab" replace /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

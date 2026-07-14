@@ -12,12 +12,12 @@ describe('chatReducer', () => {
     const state = chatReducer(initialChatState, { type: 'select-topic', topicId: 'dental-lab' })
 
     expect(state).toMatchObject({ step: 'answer', topicId: 'dental-lab' })
-    expect(chatbotTopics['dental-lab'].answer).toMatch(/Every case reviewed against your spec/i)
+    expect(chatbotTopics['dental-lab'].answer).toMatch(/crowns.*bridges.*veneers/i)
     expect(chatbotTopics['dental-lab'].actions).toEqual(expect.arrayContaining(['menu', 'human']))
   })
 
   it('returns to the menu', () => {
-    const answer = chatReducer(initialChatState, { type: 'select-topic', topicId: 'record-auditing' })
+    const answer = chatReducer(initialChatState, { type: 'select-topic', topicId: 'dental-lab' })
 
     expect(chatReducer(answer, { type: 'back' })).toMatchObject({ step: 'menu', topicId: null })
   })

@@ -17,7 +17,7 @@ describe('HomePage', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'Precision Dental Production' }),
+      screen.getByRole('heading', { name: /Precision\s+Dental\s+Milling/i }),
     ).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Implant Solutions' }),
@@ -72,7 +72,7 @@ describe('HomePage', () => {
     )
 
     const primaryPanel = screen
-      .getByRole('heading', { name: 'Precision Dental Production' })
+      .getByRole('heading', { name: /Precision\s+Dental\s+Milling/i })
       .closest('.hero-panel')
     const implantPanel = screen
       .getByRole('heading', { name: 'Implant Solutions' })

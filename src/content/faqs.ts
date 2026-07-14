@@ -4,7 +4,6 @@ export type FaqGroup =
   | 'Turnaround & Delivery'
   | 'Quality'
   | 'Privacy'
-  | 'Auditing'
   | 'Pricing'
   | 'Materials'
   | 'Compatibility'
@@ -18,9 +17,9 @@ export interface FaqItem {
 export const faqs: FaqItem[] = [
   {
     group: 'Services',
-    question: 'Who does Milling Works support?',
+    question: 'What does Milling Works do?',
     answer:
-      'We support dentists, dental practices, laboratory partners, and operations teams with laboratory, design, auditing, and outsourced workflow services.',
+      'Milling Works is a digital dental milling centre and laboratory. We produce crowns, bridges, veneers, inlays/onlays, implant restorations, and full arch prosthetics for dental practices and labs across the UK and Europe.',
   },
   {
     group: 'Digital Cases',
@@ -95,15 +94,9 @@ export const faqs: FaqItem[] = [
       'We limit case information to what is needed for the work and agree secure handling and access expectations with each client before engagement. We sign data-processing agreements and NDAs as standard — GDPR-compliant from day one.',
   },
   {
-    group: 'Auditing',
-    question: 'What does a record audit include?',
-    answer:
-      'Audits can review records and X-rays for completeness, consistency, documentation, and checks configured to your organisation\'s requirements, with findings returned in a structured report.',
-  },
-  {
     group: 'Pricing',
     question: 'How do I request pricing?',
     answer:
-      'Contact us with the service, expected volume, and timing you need. We will review the scope and prepare a quotation rather than applying a one-size-fits-all price. Volume pricing is available for practices with consistent caseloads.',
+      'Contact us with the case type, expected volume, and timing you need. We will review the scope and prepare a quotation rather than applying a one-size-fits-all price. Volume pricing is available for practices with consistent caseloads.',
   },
 ]

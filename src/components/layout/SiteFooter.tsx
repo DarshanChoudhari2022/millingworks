@@ -29,10 +29,10 @@ export function SiteFooter(): JSX.Element {
 
         {/* Navigation column */}
         <div>
-          <p className="footer-label">Services</p>
+          <p className="footer-label">Our Work</p>
           <Link to="/dental-lab">Dental Lab</Link>
-          <Link to="/record-auditing">Record Auditing</Link>
-          <Link to="/services">All Services</Link>
+          <Link to="/dental-lab">Crowns & Bridges</Link>
+          <Link to="/dental-lab">Implant Restorations</Link>
           <Link to="/about">About Us</Link>
           <Link to="/faqs">FAQs</Link>
         </div>

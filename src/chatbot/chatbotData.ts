@@ -1,9 +1,7 @@
 import { company } from '../content/company'
-import { services } from '../content/services'
 
 export type ChatTopicId =
   | 'dental-lab'
-  | 'record-auditing'
   | 'digital-case-submission'
   | 'turnaround-delivery'
   | 'pricing-quotations'
@@ -16,19 +14,11 @@ export interface ChatTopic {
   actions: readonly ('menu' | 'human')[]
 }
 
-const serviceById = new Map(services.map((service) => [service.id, service]))
-
 export const chatbotTopics: Record<ChatTopicId, ChatTopic> = {
   'dental-lab': {
     id: 'dental-lab',
     label: 'Dental lab services',
-    answer: serviceById.get('dental-lab')?.summary ?? 'We provide digital and conventional dental laboratory support.',
-    actions: ['menu', 'human'],
-  },
-  'record-auditing': {
-    id: 'record-auditing',
-    label: 'Record auditing',
-    answer: serviceById.get('record-auditing')?.summary ?? 'We provide structured reviews of dental records and X-rays.',
+    answer: 'We produce crowns, bridges, veneers, implant restorations, and full arch prosthetics using advanced 5-axis CNC milling. Every case is digitally designed and quality-checked before dispatch.',
     actions: ['menu', 'human'],
   },
   'digital-case-submission': {
@@ -40,13 +30,13 @@ export const chatbotTopics: Record<ChatTopicId, ChatTopic> = {
   'turnaround-delivery': {
     id: 'turnaround-delivery',
     label: 'Turnaround and delivery',
-    answer: 'Timing and delivery options depend on the case, materials, review needs, and destination. Share the case details and requested date so our team can discuss what is feasible.',
+    answer: 'Timing and delivery options depend on the case, materials, and destination. Share the case details and requested date so our team can discuss what is feasible.',
     actions: ['menu', 'human'],
   },
   'pricing-quotations': {
     id: 'pricing-quotations',
     label: 'Pricing and quotations',
-    answer: 'Pricing depends on the service and case requirements. Share the service, case details, and preferred contact method to prepare an enquiry for our team.',
+    answer: 'Pricing depends on the case type and requirements. Share the case details and preferred contact method to prepare an enquiry for our team.',
     actions: ['menu', 'human'],
   },
   'direct-contact': {

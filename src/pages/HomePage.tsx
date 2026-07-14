@@ -183,11 +183,11 @@ export function HomePage(): JSX.Element {
       <section className="section shell services-section">
         <AnimateOnScroll>
           <SectionIntro
-            eyebrow="Dental production services"
-            title="Choose the help your practice needs"
+            eyebrow="Dental lab services"
+            title="Precision restorations for every case"
           >
-            From precision dental milling and CAD design to record auditing and practice outsourcing
-            — start with one service and scale as you grow.
+            From single crowns and bridges to complex implant restorations and full arch prosthetics
+            — digitally designed, precision-milled, and quality-checked before dispatch.
           </SectionIntro>
         </AnimateOnScroll>
 

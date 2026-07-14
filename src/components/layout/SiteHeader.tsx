@@ -6,9 +6,7 @@ import { MillingWorksLogo } from '../../brand/MillingWorksLogo'
 
 const navigation = [
   ['About', '/about'],
-  ['Services', '/services'],
   ['Dental Lab', '/dental-lab'],
-  ['Record Auditing', '/record-auditing'],
   ['FAQs', '/faqs'],
 ] as const
 

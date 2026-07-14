@@ -8,10 +8,8 @@ afterEach(cleanup)
 
 const pages = [
   ['/about', 'Precision built on partnership', 'Meet the people behind Milling Works'],
-  ['/services', 'Services that fit your workflow', 'Dental Design Support'],
   ['/dental-lab', 'Full-Service Dental Lab', 'Eight categories. One trusted lab.'],
-  ['/record-auditing', 'Record Auditing', 'Clear findings, configured checks'],
-  ['/faqs', 'Frequently Asked Questions', 'Who does Milling Works support?'],
+  ['/faqs', 'Frequently Asked Questions', 'What does Milling Works do?'],
   ['/contact', 'Start a conversation', 'Tell us what you need'],
 ] as const
 
@@ -29,6 +27,26 @@ describe('interior pages', () => {
     })
   }
 
+  it('redirects /services to /dental-lab', () => {
+    render(
+      <MemoryRouter initialEntries={['/services']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Full-Service Dental Lab' })).toBeInTheDocument()
+  })
+
+  it('redirects /record-auditing to /dental-lab', () => {
+    render(
+      <MemoryRouter initialEntries={['/record-auditing']}>
+        <App />
+      </MemoryRouter>,
+    )
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Full-Service Dental Lab' })).toBeInTheDocument()
+  })
+
   it('uses native buttons and exposes accordion state', () => {
     render(
       <MemoryRouter initialEntries={['/faqs']}>
@@ -36,13 +54,13 @@ describe('interior pages', () => {
       </MemoryRouter>,
     )
 
-    const question = screen.getByRole('button', { name: 'Who does Milling Works support?' })
+    const question = screen.getByRole('button', { name: 'What does Milling Works do?' })
     expect(question).toHaveAttribute('aria-expanded', 'false')
     expect(question).toHaveAttribute('aria-controls')
 
     fireEvent.click(question)
 
     expect(question).toHaveAttribute('aria-expanded', 'true')
-    expect(screen.getByText(/We support dentists, dental practices/)).toBeVisible()
+    expect(screen.getByText(/Milling Works is a digital dental milling centre/)).toBeVisible()
   })
 })

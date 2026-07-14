@@ -8,47 +8,47 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    id: 'dental-lab',
-    title: 'Full-Service Dental Lab',
+    id: 'crowns-bridges',
+    title: 'Crowns & Bridges',
     summary:
-      'Every case reviewed against your spec, produced digitally, and quality-checked before delivery. Crowns, veneers, bridges, and implant work — consistent output, every time.',
+      'Precision-milled single crowns and multi-unit bridges in zirconia, lithium disilicate (E.max), PFM, and hybrid ceramic — designed for accurate fit, shade match, and long-term durability.',
     features: [
-      'Fewer remakes — cases checked against spec before dispatch',
-      'Consistent results across crowns, veneers, bridges & implants',
+      'Full-contour and layered zirconia options available',
+      'Digital shade-matching for consistent aesthetic results',
     ],
     href: '/dental-lab',
   },
   {
-    id: 'record-auditing',
-    title: 'Record Auditing',
+    id: 'implant-restorations',
+    title: 'Implant Restorations',
     summary:
-      'Structured reviews of dental records and X-rays, configured to your requirements — so compliance gaps are caught before they become problems.',
+      'Custom abutments, screw-retained crowns, implant bridges, and full arch prosthetics across all major implant systems — engineered for precise seating and clinical predictability.',
     features: [
-      'Compliance gaps identified before they escalate',
-      'Clear audit reports your team can act on immediately',
+      'Compatible with Nobel, Straumann, Zimmer, BioHorizons & more',
+      'Ti-base, hybrid, and custom abutment workflows supported',
     ],
-    href: '/record-auditing',
+    href: '/dental-lab',
   },
   {
-    id: 'dental-design-support',
-    title: 'Dental Design Support',
+    id: 'veneers-inlays',
+    title: 'Veneers & Inlays/Onlays',
     summary:
-      'On-demand digital design capacity that keeps your cases moving — without adding headcount or delays to your existing workflow.',
+      'Ultra-thin E.max veneers and precision-milled inlays and onlays for conservative, high-aesthetics restorations — minimal prep, maximum result.',
     features: [
-      'Cases move faster with flexible, scalable design support',
-      'Fewer revision cycles — feedback handled within the workflow',
+      'E.max and zirconia material options for every clinical need',
+      'Consistent marginal fit with digital design verification',
     ],
-    href: '/services#dental-design-support',
+    href: '/dental-lab',
   },
   {
-    id: 'practice-outsourcing',
-    title: 'Practice Outsourcing',
+    id: 'full-arch-prosthetics',
+    title: 'Full Arch & Prosthetics',
     summary:
-      'Repeatable practice workflows handled by a structured, accountable remote team — freeing your staff to focus on patients, not paperwork.',
+      'All-on-4, All-on-6, hybrid dentures, and PEEK frameworks — complete arch solutions milled to exacting tolerances for implant-supported and removable prosthetics.',
     features: [
-      'Your team spends less time on admin, more time on care',
-      'Predictable output, clear handoffs, no surprises',
+      'PEEK, titanium, and zirconia framework options',
+      'Digital try-in verification before final production',
     ],
-    href: '/services#practice-outsourcing',
+    href: '/dental-lab',
   },
 ]
