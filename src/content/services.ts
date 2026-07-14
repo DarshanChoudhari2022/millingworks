@@ -11,11 +11,10 @@ export const services: Service[] = [
     id: 'dental-lab',
     title: 'Full-Service Dental Lab',
     summary:
-      'Digital and conventional laboratory support for restorative and implant cases, from review through quality control and delivery.',
+      'Every case reviewed against your spec, produced digitally, and quality-checked before delivery. Crowns, veneers, bridges, and implant work — consistent output, every time.',
     features: [
-      'Crowns, veneers, and bridges',
-      'Implant solutions',
-      'Digital case workflows',
+      'Fewer remakes — cases checked against spec before dispatch',
+      'Consistent results across crowns, veneers, bridges & implants',
     ],
     href: '/dental-lab',
   },
@@ -23,11 +22,10 @@ export const services: Service[] = [
     id: 'record-auditing',
     title: 'Record Auditing',
     summary:
-      'Structured reviews of dental records and X-rays for completeness, consistency, and checks configured to each client’s requirements.',
+      'Structured reviews of dental records and X-rays, configured to your requirements — so compliance gaps are caught before they become problems.',
     features: [
-      'Record and X-ray review',
-      'Configurable client checks',
-      'Structured audit reports',
+      'Compliance gaps identified before they escalate',
+      'Clear audit reports your team can act on immediately',
     ],
     href: '/record-auditing',
   },
@@ -35,11 +33,10 @@ export const services: Service[] = [
     id: 'dental-design-support',
     title: 'Dental Design Support',
     summary:
-      'Flexible digital design capacity that helps practices and laboratory partners move cases through production efficiently.',
+      'On-demand digital design capacity that keeps your cases moving — without adding headcount or delays to your existing workflow.',
     features: [
-      'Restorative design support',
-      'Digital file review',
-      'Collaborative revisions',
+      'Cases move faster with flexible, scalable design support',
+      'Fewer revision cycles — feedback handled within the workflow',
     ],
     href: '/services#dental-design-support',
   },
@@ -47,11 +44,10 @@ export const services: Service[] = [
     id: 'practice-outsourcing',
     title: 'Practice Outsourcing',
     summary:
-      'Reliable operational support for repeatable practice workflows, tailored to the processes and service levels your team needs.',
+      'Repeatable practice workflows handled by a structured, accountable remote team — freeing your staff to focus on patients, not paperwork.',
     features: [
-      'Documented workflows',
-      'Scalable team support',
-      'Clear handoffs and reporting',
+      'Your team spends less time on admin, more time on care',
+      'Predictable output, clear handoffs, no surprises',
     ],
     href: '/services#practice-outsourcing',
   },

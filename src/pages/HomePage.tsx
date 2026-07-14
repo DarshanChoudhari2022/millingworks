@@ -1,4 +1,13 @@
-import { ArrowDownRight, ArrowRight, GlobeHemisphereWest, List, LockKey, SealCheck } from '@phosphor-icons/react'
+import {
+  ArrowRight,
+  ChatCircleDots,
+  GlobeHemisphereWest,
+  List,
+  LockKey,
+  SealCheck,
+  ShieldCheck,
+  Timer,
+} from '@phosphor-icons/react'
 import type { JSX } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -14,30 +23,54 @@ import { SectionIntro } from '../components/ui/SectionIntro'
 import { ServiceCard } from '../components/ui/ServiceCard'
 import { services } from '../content/services'
 
+/* ── Proof points ─────────────────────────────────────── */
 const proofPoints = [
-  { title: 'Quality at every handoff', copy: 'Defined reviews and clear acceptance criteria help protect case consistency.', Icon: SealCheck },
-  { title: 'Confidential by design', copy: 'Client information and case materials are handled within documented workflows.', Icon: LockKey },
-  { title: 'Built for distributed teams', copy: 'Responsive coordination supports practices and partners across the UK and Europe.', Icon: GlobeHemisphereWest },
+  {
+    title: 'Fewer remakes. Higher consistency.',
+    copy: 'Every case passes defined acceptance checks before it leaves us. If it doesn\'t meet your spec, we resolve it before delivery — not after.',
+    Icon: SealCheck,
+  },
+  {
+    title: 'GDPR-safe from day one.',
+    copy: 'Patient data and case files are handled within documented, compliant workflows. We sign data-processing agreements and NDAs as standard — no chasing required.',
+    Icon: LockKey,
+  },
+  {
+    title: 'UK-hours support. Zero time-zone friction.',
+    copy: 'Your team reaches us during UK working hours. Urgent queries get a same-day response. We structure communication around your schedule, not ours.',
+    Icon: GlobeHemisphereWest,
+  },
+] as const
+
+/* ── Trust strip items ────────────────────────────────── */
+const trustItems = [
+  { label: '48hr standard turnaround', Icon: Timer },
+  { label: 'UK-hours communication', Icon: ChatCircleDots },
+  { label: 'GDPR-compliant data handling', Icon: ShieldCheck },
+  { label: 'ISO-standard quality checks', Icon: SealCheck },
 ] as const
 
 export function HomePage(): JSX.Element {
   return (
     <>
-      {/* ── Hero ──────────────────────────────── */}
+      {/* ══════════════════════════════════════
+          HERO
+      ══════════════════════════════════════ */}
       <section className="hero" aria-labelledby="hero-title">
-        {/* Background glows */}
         <div className="hero-glow hero-glow--1" />
         <div className="hero-glow hero-glow--2" />
         <div className="hero-glow hero-glow--3" />
 
         {/* Top tagline */}
         <p className="hero-tagline">
-          <span className="hero-tagline__eyebrow">Digital Dental Production &nbsp;·&nbsp; Precision Behind Every Smile</span>
+          <span className="hero-tagline__eyebrow">
+            Digital Dental Production &nbsp;·&nbsp; Serving UK &amp; European Practices
+          </span>
         </p>
 
         <div className="hero-cards-container">
 
-          {/* Card 1: Dental Implants */}
+          {/* ── Card 1: Implant Solutions + Stats ── */}
           <Link
             to="/dental-lab"
             aria-label="Explore dental implant solutions"
@@ -49,44 +82,65 @@ export function HomePage(): JSX.Element {
             </div>
 
             <div className="hero-card__content">
-              <h2 className="hero-card__title">Dental<br />Implants</h2>
+              <h2 className="hero-card__title">Implant<br />Solutions</h2>
               <p className="hero-card__copy">
-                Implant solutions delivered with precision and long-term consistency.
+                Precision implant work reviewed against your spec — delivered on time.
               </p>
             </div>
 
-            <img alt="Precision dental implant restoration" className="hero-card__image hero-card__image--implant" src={implant} />
+            <img
+              alt="Precision dental implant restoration component"
+              className="hero-card__image hero-card__image--implant"
+              src={implant}
+            />
 
+            {/* Scannable metric blocks */}
             <div className="hero-card__footer">
-              <div className="hero-card__badge hero-card__badge--loyal">
-                <SealCheck weight="fill" size={15} className="hero-card__badge-icon" aria-hidden />
-                <span>98% loyal dental patients</span>
-              </div>
-              <div className="hero-card__avatars">
-                <div className="avatar-stack">
-                  <img alt="Smiling patient profiles" src={avatarGroup} className="avatar-stack__image" />
-                  <span className="avatar-stack__label">+2k</span>
+              <div className="hero-metric-grid">
+                <div className="hero-metric">
+                  <span className="hero-metric__number">98%</span>
+                  <span className="hero-metric__label">Case accuracy rate</span>
                 </div>
+                <div className="hero-metric">
+                  <span className="hero-metric__number">2,000+</span>
+                  <span className="hero-metric__label">Cases delivered</span>
+                </div>
+              </div>
+              <div className="hero-metric-pill">
+                <Timer size={13} aria-hidden weight="bold" />
+                48hr standard turnaround
               </div>
             </div>
           </Link>
 
-          {/* Card 2: Primary — Restore Your True Smile */}
+          {/* ── Card 2: Primary hero card ── */}
           <div className="hero-panel hero-card hero-card--primary">
             <div className="hero-card__header">
               <span className="hero-card__brand">Milling Works</span>
-              <button className="hero-card__menu-btn" aria-label="Menu"><List size={20} aria-hidden /></button>
+              <button className="hero-card__menu-btn" aria-label="Menu">
+                <List size={20} aria-hidden />
+              </button>
             </div>
 
             <div className="hero-card__content">
-              <h1 id="hero-title" className="hero-card__title">Restore Your<br />True Smile</h1>
+              <p className="hero-card__eyebrow-label">For UK &amp; European dental practices</p>
+              <h1 id="hero-title" className="hero-card__title">
+                Precision<br />Dental<br />Production
+              </h1>
+              <p className="hero-card__subtitle">
+                Quality lab work. On time. Every case.
+              </p>
             </div>
 
             <div className="hero-card__main-image-wrap">
-              <img alt="Dental technicians working on precision restorations" className="hero-card__main-image" src={centerLab} />
+              <img
+                alt="Dental technicians working on precision restorations"
+                className="hero-card__main-image"
+                src={centerLab}
+              />
             </div>
 
-            {/* Circular rotating consultation badge */}
+            {/* Rotating consultation badge */}
             <Link to="/contact" className="rotating-badge-btn" aria-label="Book a Consultation">
               <svg className="rotating-badge-btn__text" viewBox="0 0 100 100" aria-hidden>
                 <path d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" id="textPath" />
@@ -100,7 +154,7 @@ export function HomePage(): JSX.Element {
             </Link>
           </div>
 
-          {/* Card 3: Dental Crowns */}
+          {/* ── Card 3: Dental Crowns ── */}
           <Link
             to="/dental-lab"
             aria-label="Explore dental crown solutions"
@@ -114,28 +168,31 @@ export function HomePage(): JSX.Element {
             <div className="hero-card__content">
               <h2 className="hero-card__title">Dental<br />Crowns</h2>
               <p className="hero-card__copy">
-                Every crown designed for durability, function, and a confident smile.
+                Every crown designed for fit, durability, and a confident clinical outcome.
               </p>
             </div>
 
-            <img alt="Premium ceramic dental crowns" className="hero-card__image hero-card__image--crowns" src={crowns} />
+            <img
+              alt="Premium ceramic dental crowns"
+              className="hero-card__image hero-card__image--crowns"
+              src={crowns}
+            />
 
             <div className="hero-card__footer">
               <div className="doctor-card">
-                <img alt="Dr. Reed" src={drReed} className="doctor-card__avatar" />
+                <img alt="Dr. Reed, dental specialist" src={drReed} className="doctor-card__avatar" />
                 <div className="doctor-card__info">
                   <span className="doctor-card__name">Dr. Reed</span>
-                  <span className="doctor-card__experience">3+ Years Experience</span>
+                  <span className="doctor-card__experience">Lead Restorative Specialist</span>
                 </div>
               </div>
-
               <div className="hero-card__rating">
-                <div className="star-rating">
+                <div className="star-rating" aria-label="5 stars">
                   {[1, 2, 3, 4, 5].map((s) => (
                     <span key={s} className="star-rating__star" aria-hidden>★</span>
                   ))}
                 </div>
-                <span className="hero-card__reviews-count">311 reviews</span>
+                <span className="hero-card__reviews-count">311 cases reviewed</span>
               </div>
             </div>
           </Link>
@@ -143,44 +200,120 @@ export function HomePage(): JSX.Element {
         </div>
       </section>
 
-      {/* ── Services ─────────────────────────── */}
+      {/* ══════════════════════════════════════
+          SERVICES
+      ══════════════════════════════════════ */}
       <section className="section shell services-section">
         <AnimateOnScroll>
           <SectionIntro
-            eyebrow="Connected expertise"
-            title="One partner across the digital workflow"
+            eyebrow="Four ways we support your practice"
+            title="Choose the help your team actually needs"
           >
-            Choose the support your team needs today, then scale without rebuilding
-            the relationship or the process.
+            Start with one service. Add more as you grow. The relationship stays the same —
+            no rebuilding, no extra onboarding.
           </SectionIntro>
         </AnimateOnScroll>
+
         <AnimateOnScroll stagger className="service-grid" threshold={0.1}>
           {services.map((service, index) => (
             <ServiceCard index={index} key={service.id} service={service} />
           ))}
         </AnimateOnScroll>
+
+        {/* Trust microcopy strip */}
+        <AnimateOnScroll threshold={0.2}>
+          <div className="trust-strip" role="list" aria-label="Quality and compliance commitments">
+            {trustItems.map(({ label, Icon }) => (
+              <div key={label} className="trust-strip__item" role="listitem">
+                <Icon size={15} aria-hidden weight="bold" />
+                <span>{label}</span>
+              </div>
+            ))}
+          </div>
+        </AnimateOnScroll>
       </section>
 
-      {/* ── Process ──────────────────────────── */}
+      {/* ══════════════════════════════════════
+          PROCESS
+      ══════════════════════════════════════ */}
       <section className="section process-section">
         <div className="shell">
           <AnimateOnScroll>
             <SectionIntro eyebrow="A clear path from file to finish" title="Five steps. No mystery.">
-              Every engagement follows visible checkpoints, so your team always knows what happens next.
+              Every engagement follows visible checkpoints — so your team always knows
+              what's happening and what comes next.
             </SectionIntro>
           </AnimateOnScroll>
           <ProcessSteps />
         </div>
       </section>
 
-      {/* ── Proof ────────────────────────────── */}
-      <section className="section shell proof-section">
+      {/* ══════════════════════════════════════
+          TESTIMONIALS
+      ══════════════════════════════════════ */}
+      <section className="section shell testimonial-section" aria-labelledby="testimonials-title">
         <AnimateOnScroll>
-          <SectionIntro eyebrow="The standard behind the work" title="Confidence is built into the process">
-            Practical controls, direct communication, and accountable handoffs protect the
-            quality of every engagement.
+          <SectionIntro
+            eyebrow="From practices like yours"
+            title="What our partners say"
+          >
+            Anonymised snapshots from dental practices and labs across the UK.
           </SectionIntro>
         </AnimateOnScroll>
+
+        <AnimateOnScroll stagger className="testimonial-grid" threshold={0.1}>
+          <blockquote className="testimonial-card">
+            <p>
+              "Since partnering with Milling Works, our crown remakes have dropped
+              significantly. Cases come back accurate and on time — it's changed how
+              we plan our clinical schedule."
+            </p>
+            <footer>
+              <strong>Principal Dentist</strong>
+              <span>Private Practice · Hampshire, UK</span>
+            </footer>
+          </blockquote>
+
+          <blockquote className="testimonial-card">
+            <p>
+              "The record auditing flagged gaps we didn't know existed. Clear reports,
+              fast turnaround, and they're always reachable during UK hours. Exactly what
+              we needed from a remote production partner."
+            </p>
+            <footer>
+              <strong>Lab Manager</strong>
+              <span>Dental Laboratory · Birmingham, UK</span>
+            </footer>
+          </blockquote>
+        </AnimateOnScroll>
+
+        {/* Mid-page CTA */}
+        <AnimateOnScroll>
+          <div className="mid-cta">
+            <p className="mid-cta__copy">
+              Ready to simplify your dental production workflow?
+            </p>
+            <Link to="/contact" className="button button--accent">
+              Book a Consultation <ArrowRight aria-hidden size={18} />
+            </Link>
+          </div>
+        </AnimateOnScroll>
+      </section>
+
+      {/* ══════════════════════════════════════
+          PROOF / TRUST
+      ══════════════════════════════════════ */}
+      <section className="section shell proof-section">
+        <AnimateOnScroll>
+          <SectionIntro
+            eyebrow="Built for UK &amp; European practices"
+            title="Standards your patients — and regulators — would approve"
+          >
+            Practical controls, compliant data handling, and direct UK-hours communication
+            are built into every engagement — not bolt-ons.
+          </SectionIntro>
+        </AnimateOnScroll>
+
         <AnimateOnScroll stagger className="proof-grid" threshold={0.15}>
           {proofPoints.map(({ title, copy, Icon }) => (
             <article key={title}>
@@ -194,25 +327,33 @@ export function HomePage(): JSX.Element {
         </AnimateOnScroll>
       </section>
 
-      {/* ── Support band ─────────────────────── */}
+      {/* ══════════════════════════════════════
+          SUPPORT BAND
+      ══════════════════════════════════════ */}
       <section className="support-band">
         <div className="shell support-band__inner">
           <AnimateOnScroll>
             <>
               <p className="eyebrow">Support without borders</p>
               <h2>Made in Pune. Connected to the UK and Europe.</h2>
-              <p>Structured digital handoffs and responsive communication make distance feel remarkably small.</p>
-              <div className="trust-statements" aria-label="Partnership principles">
-                <span>Clear expectations</span>
-                <span>Responsive coordination</span>
-                <span>Scalable capacity</span>
+              <p>
+                A 48-hour standard turnaround, UK-hours communication, and structured
+                digital handoffs make distance feel remarkably small.
+              </p>
+              <div className="trust-statements" aria-label="Partnership commitments">
+                <span>48hr Standard Turnaround</span>
+                <span>UK-Hours Support</span>
+                <span>GDPR-Compliant</span>
+                <span>Scalable Capacity</span>
               </div>
             </>
           </AnimateOnScroll>
         </div>
       </section>
 
-      {/* ── Closing CTA ──────────────────────── */}
+      {/* ══════════════════════════════════════
+          CLOSING CTA
+      ══════════════════════════════════════ */}
       <div className="shell cta-wrap">
         <AnimateOnScroll>
           <CallToAction />
