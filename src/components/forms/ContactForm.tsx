@@ -68,12 +68,12 @@ export function ContactForm({ defaultService = '' }: ContactFormProps): JSX.Elem
       <div className="form-field">
         <label htmlFor="contact-name">Name</label>
         <input id="contact-name" required value={values.name} onChange={(event) => update('name', event.target.value)} aria-describedby={errors.name ? 'contact-name-error' : undefined} aria-invalid={Boolean(errors.name)} />
-        {errors.name && <p id="contact-name-error" className="form-error">{errors.name}</p>}
+        {errors.name && <p id="contact-name-error" className="form-error" role="alert">{errors.name}</p>}
       </div>
       <div className="form-field">
         <label htmlFor="contact-email">Email</label>
         <input id="contact-email" type="email" required value={values.email} onChange={(event) => update('email', event.target.value)} aria-describedby={errors.email ? 'contact-email-error' : undefined} aria-invalid={Boolean(errors.email)} />
-        {errors.email && <p id="contact-email-error" className="form-error">{errors.email}</p>}
+        {errors.email && <p id="contact-email-error" className="form-error" role="alert">{errors.email}</p>}
       </div>
       <div className="form-field contact-form__wide">
         <label htmlFor="contact-service">Service</label>
@@ -81,12 +81,12 @@ export function ContactForm({ defaultService = '' }: ContactFormProps): JSX.Elem
           <option value="">Select a service</option>
           {services.map((service) => <option key={service.id} value={service.title}>{service.title}</option>)}
         </select>
-        {errors.service && <p id="contact-service-error" className="form-error">{errors.service}</p>}
+        {errors.service && <p id="contact-service-error" className="form-error" role="alert">{errors.service}</p>}
       </div>
       <div className="form-field contact-form__wide">
         <label htmlFor="contact-message">Message</label>
         <textarea id="contact-message" rows={6} required value={values.message} onChange={(event) => update('message', event.target.value)} aria-describedby={errors.message ? 'contact-message-error' : undefined} aria-invalid={Boolean(errors.message)} />
-        {errors.message && <p id="contact-message-error" className="form-error">{errors.message}</p>}
+        {errors.message && <p id="contact-message-error" className="form-error" role="alert">{errors.message}</p>}
       </div>
       <button className="button contact-form__submit" type="submit">Prepare enquiry <ArrowUpRight aria-hidden size={20} /></button>
       {handoff && (

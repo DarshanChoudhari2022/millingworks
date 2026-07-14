@@ -39,4 +39,15 @@ describe('MillingWorksLogo', () => {
       within(container).getByRole('img', { name: 'Milling Works home' }),
     ).toHaveAttribute('data-inverse', 'true')
   })
+
+  it('can be decorative when a parent link already supplies the accessible name', () => {
+    const { container } = render(
+      <a aria-label="Milling Works home" href="/">
+        <MillingWorksLogo decorative />
+      </a>,
+    )
+
+    expect(within(container).getByRole('link', { name: 'Milling Works home' })).toBeInTheDocument()
+    expect(within(container).queryByRole('img', { name: 'Milling Works home' })).not.toBeInTheDocument()
+  })
 })

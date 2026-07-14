@@ -1,6 +1,6 @@
 import type { JSX, ReactNode } from 'react'
 
-import heroGrid from '../../assets/hero-mint-grid.png'
+import heroGrid from '../../assets/hero-mint-grid.webp'
 
 interface Metric {
   value: string

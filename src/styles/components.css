@@ -220,6 +220,7 @@
   .chatbot__launcher { right: 84px; bottom: 18px; }
   .chatbot__dialog { right: 12px; bottom: 86px; width: calc(100vw - 24px); max-height: calc(100dvh - 104px); border-radius: 22px; }
   .page-hero { width: calc(100% - 16px); margin-top: 8px; border-radius: 28px; }
+  .page-hero__metrics { grid-template-columns: 1fr; }
   .feature-grid--two, .feature-grid--three, .workflow-grid, .contact-form { grid-template-columns: 1fr; }
   .service-list__item { grid-template-columns: 1fr; gap: 8px; }
   .workflow-grid li { padding-inline: 0; border-right: 0; }

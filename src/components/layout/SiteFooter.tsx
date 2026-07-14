@@ -10,7 +10,7 @@ export function SiteFooter(): JSX.Element {
     <footer className="site-footer">
       <div className="shell site-footer__grid">
         <div>
-          <Link aria-label="Milling Works home" to="/"><MillingWorksLogo inverse /></Link>
+          <Link aria-label="Milling Works home" to="/"><MillingWorksLogo decorative inverse /></Link>
           <p>Digital-first dental production and operational support, built around precise handoffs.</p>
         </div>
         <div>

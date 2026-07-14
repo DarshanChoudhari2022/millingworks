@@ -2,11 +2,13 @@ const markUrl = new URL('../assets/milling-works-mark.png', import.meta.url).hre
 
 export interface MillingWorksLogoProps {
   compact?: boolean
+  decorative?: boolean
   inverse?: boolean
 }
 
 export function MillingWorksLogo({
   compact = false,
+  decorative = false,
   inverse = false,
 }: MillingWorksLogoProps) {
   const className = [
@@ -19,16 +21,17 @@ export function MillingWorksLogo({
 
   return (
     <span
-      aria-label="Milling Works home"
+      aria-hidden={decorative || undefined}
+      aria-label={decorative ? undefined : 'Milling Works home'}
       className={className}
       data-inverse={inverse ? 'true' : undefined}
-      role="img"
+      role={decorative ? undefined : 'img'}
     >
       <img
         alt=""
         className="brand-logo__mark"
         src={markUrl}
-        title="Milling Works MW tooth mark"
+        title={decorative ? undefined : 'Milling Works MW tooth mark'}
       />
       {!compact && <span className="brand-logo__wordmark">Milling Works</span>}
     </span>

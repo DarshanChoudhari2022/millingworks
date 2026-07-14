@@ -19,7 +19,7 @@ export function SiteHeader(): JSX.Element {
     <header className="site-header">
       <div className="shell site-header__inner">
         <Link aria-label="Milling Works home" className="site-header__brand" to="/">
-          <MillingWorksLogo />
+          <MillingWorksLogo decorative />
         </Link>
         <button
           aria-controls="site-navigation"
