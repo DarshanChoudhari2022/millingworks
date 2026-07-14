@@ -7,6 +7,15 @@ import { ContactForm } from './ContactForm'
 afterEach(cleanup)
 
 describe('ContactForm', () => {
+  it('visibly and semantically identifies every required control', () => {
+    render(<ContactForm />)
+
+    expect(screen.getByText('All fields are required.')).toBeVisible()
+    for (const label of ['Name', 'Email', 'Service', 'Message']) {
+      expect(screen.getByLabelText(label)).toBeRequired()
+    }
+  })
+
   it('shows errors for all required fields', () => {
     render(<ContactForm />)
 
@@ -25,6 +34,37 @@ describe('ContactForm', () => {
     fireEvent.submit(screen.getByRole('button', { name: 'Prepare enquiry' }).closest('form')!)
 
     expect(screen.getByText('Enter a valid email address')).toBeInTheDocument()
+  })
+
+  it('clears only the edited field error and aria-invalid state', () => {
+    render(<ContactForm />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Prepare enquiry' }))
+    const name = screen.getByLabelText('Name')
+    const email = screen.getByLabelText('Email')
+
+    expect(name).toHaveAttribute('aria-invalid', 'true')
+    expect(email).toHaveAttribute('aria-invalid', 'true')
+
+    fireEvent.change(name, { target: { value: 'Priya Shah' } })
+
+    expect(screen.queryByText('Enter your name')).not.toBeInTheDocument()
+    expect(name).toHaveAttribute('aria-invalid', 'false')
+    expect(screen.getByText('Enter your email address')).toBeVisible()
+    expect(email).toHaveAttribute('aria-invalid', 'true')
+  })
+
+  it('revalidates an edited field while retaining errors on other fields', () => {
+    render(<ContactForm />)
+
+    fireEvent.click(screen.getByRole('button', { name: 'Prepare enquiry' }))
+    const email = screen.getByLabelText('Email')
+
+    fireEvent.change(email, { target: { value: 'not-an-email' } })
+
+    expect(screen.getByText('Enter a valid email address')).toBeVisible()
+    expect(email).toHaveAttribute('aria-invalid', 'true')
+    expect(screen.getByText('Enter your name')).toBeVisible()
   })
 
   it('prepares WhatsApp and email handoffs without claiming delivery', () => {

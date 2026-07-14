@@ -136,6 +136,7 @@
 .contact-details address a, .contact-details address span { display: flex; align-items: flex-start; gap: 12px; }
 .contact-details address svg { flex: 0 0 auto; color: var(--blue); }
 .contact-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; padding: clamp(28px, 5vw, 55px); background: var(--surface); border-radius: var(--radius-md); }
+.contact-form__guidance { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .9rem; font-weight: 700; }
 .form-field { display: flex; flex-direction: column; gap: 8px; }
 .form-field label { font-weight: 800; }
 .form-field input, .form-field select, .form-field textarea { width: 100%; padding: 15px 16px; color: var(--ink); background: var(--white); border: 1px solid var(--line); border-radius: 12px; }

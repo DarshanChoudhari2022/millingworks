@@ -34,7 +34,18 @@ export function ContactForm({ defaultService = '' }: ContactFormProps): JSX.Elem
   const [handoff, setHandoff] = useState<{ whatsapp: string; email: string } | null>(null)
 
   const update = (field: keyof FormValues, value: string) => {
-    setValues((current) => ({ ...current, [field]: value }))
+    const nextValues = { ...values, [field]: value }
+    setValues(nextValues)
+    setErrors((current) => {
+      if (!Object.prototype.hasOwnProperty.call(current, field)) return current
+
+      const fieldError = validate(nextValues)[field]
+      if (fieldError) return { ...current, [field]: fieldError }
+
+      const nextErrors = { ...current }
+      delete nextErrors[field]
+      return nextErrors
+    })
     setHandoff(null)
   }
 
@@ -53,19 +64,20 @@ export function ContactForm({ defaultService = '' }: ContactFormProps): JSX.Elem
 
   return (
     <form className="contact-form" onSubmit={submit} noValidate>
+      <p className="contact-form__guidance">All fields are required.</p>
       <div className="form-field">
         <label htmlFor="contact-name">Name</label>
-        <input id="contact-name" value={values.name} onChange={(event) => update('name', event.target.value)} aria-describedby={errors.name ? 'contact-name-error' : undefined} aria-invalid={Boolean(errors.name)} />
+        <input id="contact-name" required value={values.name} onChange={(event) => update('name', event.target.value)} aria-describedby={errors.name ? 'contact-name-error' : undefined} aria-invalid={Boolean(errors.name)} />
         {errors.name && <p id="contact-name-error" className="form-error">{errors.name}</p>}
       </div>
       <div className="form-field">
         <label htmlFor="contact-email">Email</label>
-        <input id="contact-email" type="email" value={values.email} onChange={(event) => update('email', event.target.value)} aria-describedby={errors.email ? 'contact-email-error' : undefined} aria-invalid={Boolean(errors.email)} />
+        <input id="contact-email" type="email" required value={values.email} onChange={(event) => update('email', event.target.value)} aria-describedby={errors.email ? 'contact-email-error' : undefined} aria-invalid={Boolean(errors.email)} />
         {errors.email && <p id="contact-email-error" className="form-error">{errors.email}</p>}
       </div>
       <div className="form-field contact-form__wide">
         <label htmlFor="contact-service">Service</label>
-        <select id="contact-service" value={values.service} onChange={(event) => update('service', event.target.value)} aria-describedby={errors.service ? 'contact-service-error' : undefined} aria-invalid={Boolean(errors.service)}>
+        <select id="contact-service" required value={values.service} onChange={(event) => update('service', event.target.value)} aria-describedby={errors.service ? 'contact-service-error' : undefined} aria-invalid={Boolean(errors.service)}>
           <option value="">Select a service</option>
           {services.map((service) => <option key={service.id} value={service.title}>{service.title}</option>)}
         </select>
@@ -73,7 +85,7 @@ export function ContactForm({ defaultService = '' }: ContactFormProps): JSX.Elem
       </div>
       <div className="form-field contact-form__wide">
         <label htmlFor="contact-message">Message</label>
-        <textarea id="contact-message" rows={6} value={values.message} onChange={(event) => update('message', event.target.value)} aria-describedby={errors.message ? 'contact-message-error' : undefined} aria-invalid={Boolean(errors.message)} />
+        <textarea id="contact-message" rows={6} required value={values.message} onChange={(event) => update('message', event.target.value)} aria-describedby={errors.message ? 'contact-message-error' : undefined} aria-invalid={Boolean(errors.message)} />
         {errors.message && <p id="contact-message-error" className="form-error">{errors.message}</p>}
       </div>
       <button className="button contact-form__submit" type="submit">Prepare enquiry <ArrowUpRight aria-hidden size={20} /></button>
