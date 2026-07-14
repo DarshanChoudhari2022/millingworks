@@ -1,5 +1,5 @@
 import { List, X } from '@phosphor-icons/react'
-import { useState, type JSX } from 'react'
+import { useEffect, useState, type JSX } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 import { MillingWorksLogo } from '../../brand/MillingWorksLogo'
@@ -14,13 +14,21 @@ const navigation = [
 
 export function SiteHeader(): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="site-header">
+    <header className={`site-header${scrolled ? ' site-header--scrolled' : ''}`}>
       <div className="shell site-header__inner">
         <Link aria-label="Milling Works home" className="site-header__brand" to="/">
           <MillingWorksLogo decorative />
         </Link>
+
         <button
           aria-controls="site-navigation"
           aria-expanded={menuOpen}
@@ -29,8 +37,9 @@ export function SiteHeader(): JSX.Element {
           onClick={() => setMenuOpen((open) => !open)}
           type="button"
         >
-          {menuOpen ? <X aria-hidden size={24} /> : <List aria-hidden size={24} />}
+          {menuOpen ? <X aria-hidden size={22} /> : <List aria-hidden size={22} />}
         </button>
+
         <nav
           aria-label="Primary navigation"
           className={`site-navigation${menuOpen ? ' site-navigation--open' : ''}`}
@@ -41,7 +50,7 @@ export function SiteHeader(): JSX.Element {
               {label}
             </NavLink>
           ))}
-          <Link className="button button--compact" onClick={() => setMenuOpen(false)} to="/contact">
+          <Link className="button button--compact button--accent" onClick={() => setMenuOpen(false)} to="/contact">
             Send a Case
           </Link>
         </nav>
