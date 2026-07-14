@@ -17,10 +17,10 @@ describe('HomePage', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'Restore Your True Smile' }),
+      screen.getByRole('heading', { name: 'Precision Dental Production' }),
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: 'Dental Implants' }),
+      screen.getByRole('heading', { name: 'Implant Solutions' }),
     ).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Dental Crowns' }),
@@ -72,10 +72,10 @@ describe('HomePage', () => {
     )
 
     const primaryPanel = screen
-      .getByRole('heading', { name: 'Restore Your True Smile' })
+      .getByRole('heading', { name: 'Precision Dental Production' })
       .closest('.hero-panel')
     const implantPanel = screen
-      .getByRole('heading', { name: 'Dental Implants' })
+      .getByRole('heading', { name: 'Implant Solutions' })
       .closest('.hero-panel')
     const primaryLink = screen.getAllByRole('link', { name: 'Book a Consultation' })[0]
     const implantLink = screen.getByRole('link', {
@@ -86,11 +86,11 @@ describe('HomePage', () => {
     expect(implantPanel).not.toBeNull()
     expect(
       primaryPanel!.compareDocumentPosition(implantPanel!) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
+        Node.DOCUMENT_POSITION_PRECEDING,
     ).toBeTruthy()
     expect(
       primaryLink.compareDocumentPosition(implantLink) &
-        Node.DOCUMENT_POSITION_FOLLOWING,
+        Node.DOCUMENT_POSITION_PRECEDING,
     ).toBeTruthy()
   })
 })

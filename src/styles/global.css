@@ -3,14 +3,14 @@
 
 :root {
   /* Brand colours */
-  --navy:        #060f1e;
-  --navy-mid:    #0d1f3a;
-  --blue:        #0a6ef5;
-  --blue-deep:   #0552c7;
-  --blue-soft:   #2a7ff6;
-  --sky:         #4eaaff;
-  --teal:        #0c9e84;
-  --lime:        #b8f53d;
+  --navy:        #0c0518; /* Deep purple-black */
+  --navy-mid:    #18102d; /* Deep purple-navy */
+  --blue:        #7b3fa0; /* Primary medical purple */
+  --blue-deep:   #5e2d8a; /* Deep purple */
+  --blue-soft:   #9654c2; /* Soft purple */
+  --sky:         #c39be3; /* Light lavender-purple */
+  --teal:        #1abc9c; /* Clinical teal accent */
+  --lime:        #b8f53d; /* Premium lime highlight */
   --mint:        #e3f9f4;
   --white:       #ffffff;
 
@@ -21,10 +21,11 @@
   --muted-light: #8a9ab5;
 
   /* Surfaces */
-  --surface:      #f4f7fb;
+  --surface:      #f6f4fa; /* Lavendar-grey tint */
   --surface-card: #ffffff;
-  --line:         #dde6f0;
-  --line-soft:    #eaf0f8;
+  --line:         #e2ddef; /* Soft purple line */
+  --line-soft:    #f0edf7;
+
 
   /* Shadows */
   --shadow-xs:   0 2px 8px rgba(6,15,30,.06);

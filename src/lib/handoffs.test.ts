@@ -5,7 +5,7 @@ describe('handoff URL utilities', () => {
   it('prepares a WhatsApp handoff with the supplied message', () => {
     const url = createWhatsAppUrl('Dental lab quote')
 
-    expect(url).toMatch(/^https:\/\/wa\.me\/918390998058\?text=/)
+    expect(url).toMatch(/^https:\/\/wa\.me\/918390998088\?text=/)
     expect(new URL(url).searchParams.get('text')).toBe('Dental lab quote')
   })
 

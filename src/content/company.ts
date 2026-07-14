@@ -10,8 +10,8 @@ export interface CompanyDetails {
 export const company = {
   name: 'Milling Works',
   contacts: ['Akash Gaurav', 'Arjun Rana'],
-  phoneDisplay: '+91 83909 98058',
-  phoneDigits: '918390998058',
+  phoneDisplay: '+91 83909 98088',
+  phoneDigits: '918390998088',
   email: 'sales@millingworks.com',
   address:
     'Building B, Office 317, Surawalla Mark Plazzo, S. No. 27, Mulshi, Hinjawadi, Pune 411057, India',

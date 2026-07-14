@@ -12,7 +12,7 @@ describe('chatReducer', () => {
     const state = chatReducer(initialChatState, { type: 'select-topic', topicId: 'dental-lab' })
 
     expect(state).toMatchObject({ step: 'answer', topicId: 'dental-lab' })
-    expect(chatbotTopics['dental-lab'].answer).toMatch(/digital and conventional/i)
+    expect(chatbotTopics['dental-lab'].answer).toMatch(/Every case reviewed against your spec/i)
     expect(chatbotTopics['dental-lab'].actions).toEqual(expect.arrayContaining(['menu', 'human']))
   })
 

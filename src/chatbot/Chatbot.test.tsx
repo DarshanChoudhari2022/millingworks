@@ -78,7 +78,7 @@ describe('Chatbot', () => {
 
     expect(screen.getByText(/how can we help\? choose a topic/i)).toBeVisible()
     expect(screen.getByText('Dental lab services', { selector: 'p' })).toBeVisible()
-    expect(screen.getByText(/digital and conventional laboratory support/i)).toBeVisible()
+    expect(screen.getByText(/Every case reviewed against your spec/i)).toBeVisible()
     expect(screen.getByRole('button', { name: 'Back to menu' })).toBeVisible()
     expect(screen.getByRole('button', { name: 'Talk to a person' })).toBeVisible()
   })
@@ -105,7 +105,7 @@ describe('Chatbot', () => {
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Resume Milling Works assistant' }))
 
-    expect(screen.getByText(/digital and conventional laboratory support/i)).toBeVisible()
+    expect(screen.getByText(/Every case reviewed against your spec/i)).toBeVisible()
   })
 
   it('resets the assistant and clears personal data', () => {
