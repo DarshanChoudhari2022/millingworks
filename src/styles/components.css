@@ -18,6 +18,7 @@
 .hero-panel p { color: rgba(255,255,255,.83); }
 .hero-panel__kicker { margin-bottom: 12px; font-size: .75rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .hero-panel--implant, .hero-panel--crowns { z-index: 2; top: 106px; width: 29%; min-height: 500px; padding: 38px 32px; background: var(--blue-soft); }
+.hero-panel--implant p, .hero-panel--crowns p { color: var(--white); }
 .hero-panel--implant { left: 4.2%; transform: rotate(-2.2deg); }
 .hero-panel--crowns { right: 4.2%; transform: rotate(2.2deg); }
 .hero-panel--implant h2, .hero-panel--crowns h2 { max-width: 240px; margin-bottom: 14px; font-size: clamp(2.4rem, 3.5vw, 4.3rem); line-height: .94; }

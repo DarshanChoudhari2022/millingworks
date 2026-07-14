@@ -39,6 +39,18 @@ test('desktop side panels use a softer, de-emphasized blue', async ({ page }) =>
   expect(relativeLuminance(implant) - relativeLuminance(primary)).toBeGreaterThanOrEqual(0.06)
 })
 
+test('desktop side-panel small copy has at least 4.5 to 1 contrast', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/')
+
+  const colors = await page.locator('.hero-panel--implant > p:not(.hero-panel__kicker)').evaluate((copy) => {
+    const copyStyle = getComputedStyle(copy)
+    const panelStyle = getComputedStyle(copy.parentElement!)
+    return { foreground: copyStyle.color, background: panelStyle.backgroundColor }
+  })
+  expect(contrastRatio(colors.foreground, colors.background)).toBeGreaterThanOrEqual(4.5)
+})
+
 test('mobile floating actions form one compact right-side column', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
@@ -69,4 +81,23 @@ function relativeLuminance(cssColor: string): number {
     return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4
   })
   return 0.2126 * red + 0.7152 * green + 0.0722 * blue
+}
+
+function contrastRatio(foreground: string, background: string): number {
+  const foregroundChannels = parseCssColor(foreground)
+  const backgroundChannels = parseCssColor(background)
+  const composite = foregroundChannels.channels.map((channel, index) =>
+    channel * foregroundChannels.alpha + backgroundChannels.channels[index] * (1 - foregroundChannels.alpha),
+  )
+  const foregroundLuminance = relativeLuminance(`rgb(${composite.join(',')})`)
+  const backgroundLuminance = relativeLuminance(`rgb(${backgroundChannels.channels.join(',')})`)
+  const lighter = Math.max(foregroundLuminance, backgroundLuminance)
+  const darker = Math.min(foregroundLuminance, backgroundLuminance)
+  return (lighter + 0.05) / (darker + 0.05)
+}
+
+function parseCssColor(cssColor: string): { channels: number[]; alpha: number } {
+  const values = cssColor.match(/[\d.]+/g)?.map(Number)
+  if (!values || values.length < 3) throw new Error(`Unsupported CSS color: ${cssColor}`)
+  return { channels: values.slice(0, 3), alpha: values[3] ?? 1 }
 }
