@@ -2,7 +2,7 @@ import { useEffect, type JSX } from 'react'
 import { company } from '../../content/company'
 import type { ServiceMetadata } from '../../content/routeMetadata'
 
-const SITE_URL = 'https://millingworks.vercel.app'
+const SITE_URL = 'https://millingworks-lovat.vercel.app'
 
 interface ManagedMeta {
   element: HTMLMetaElement
