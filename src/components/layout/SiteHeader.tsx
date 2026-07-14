@@ -3,14 +3,7 @@ import { useEffect, useState, type JSX } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 import { MillingWorksLogo } from '../../brand/MillingWorksLogo'
-
-const navigation = [
-  ['Home', '/'],
-  ['Crowns & Bridges', '/crowns-bridges'],
-  ['Dental Implants', '/dental-implants'],
-  ['About', '/about'],
-  ['FAQs', '/faqs'],
-] as const
+import { expansionNavigation } from '../../content/expansion'
 
 export function SiteHeader(): JSX.Element {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -45,13 +38,13 @@ export function SiteHeader(): JSX.Element {
           className={`site-navigation${menuOpen ? ' site-navigation--open' : ''}`}
           id="site-navigation"
         >
-          {navigation.map(([label, href]) => (
+          {expansionNavigation.map(([label, href]) => (
             <NavLink key={href} onClick={() => setMenuOpen(false)} to={href}>
               {label}
             </NavLink>
           ))}
           <Link className="button button--compact button--accent" onClick={() => setMenuOpen(false)} to="/contact">
-            Send a Case
+            Contact Us
           </Link>
         </nav>
       </div>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 interface EditorialHeroProps {
   eyebrow: string; title: string; introduction: string; image: string; imageAlt: string
-  variant: 'home' | 'crowns' | 'implants'
+  variant: 'home' | 'crowns' | 'implants' | 'services' | 'audit'
   primaryAction?: { label: string; href: string }
   secondaryAction?: { label: string; href: string }
 }

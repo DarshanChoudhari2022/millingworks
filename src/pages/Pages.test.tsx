@@ -11,7 +11,7 @@ const pages = [
   ['/crowns-bridges', 'Crowns and bridges, made with intent', 'Restorations for everyday clinical work'],
   ['/dental-implants', 'Implant restorations, carefully resolved', 'A considered route from records to restoration'],
   ['/faqs', 'Frequently Asked Questions', 'What does Milling Works do?'],
-  ['/contact', 'Start a conversation', 'Tell us what you need'],
+  ['/contact', 'Contact Us', 'Need production support, a technical discussion or a dental record audit? Share what you already have and our team will review the requirement with you.'],
 ] as const
 
 describe('interior pages', () => {
@@ -28,24 +28,24 @@ describe('interior pages', () => {
     })
   }
 
-  it('redirects /services to crowns and bridges', () => {
+  it('redirects /services to the full-service dental lab page', () => {
     render(
       <MemoryRouter initialEntries={['/services']}>
         <App />
       </MemoryRouter>,
     )
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Crowns and bridges, made with intent' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'Production support across the complete case journey' })).toBeInTheDocument()
   })
 
-  it('redirects removed services to crowns and bridges', () => {
+  it('renders the dental record auditing service page', () => {
     render(
       <MemoryRouter initialEntries={['/record-auditing']}>
         <App />
       </MemoryRouter>,
     )
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Crowns and bridges, made with intent' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'Clearer records. Stronger clinical governance.' })).toBeInTheDocument()
   })
 
   it('uses native buttons and exposes accordion state', () => {
