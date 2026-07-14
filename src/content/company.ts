@@ -14,5 +14,5 @@ export const company = {
   phoneDigits: '918390998088',
   email: 'sales@millingworks.com',
   address:
-    'Building B, Office 317, Surawalla Mark Plazzo, S. No. 27, Mulshi, Hinjawadi, Pune 411057, India',
+    'Building B, Office 317, Surawalla Mark Plaza, S. No. 27, Mulshi, Hinjawadi, Pune 411057, India',
 } as const satisfies CompanyDetails
