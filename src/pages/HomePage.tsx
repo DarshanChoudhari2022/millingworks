@@ -2,7 +2,6 @@ import {
   ArrowRight,
   ChatCircleDots,
   GlobeHemisphereWest,
-  List,
   LockKey,
   SealCheck,
   ShieldCheck,
@@ -78,7 +77,6 @@ export function HomePage(): JSX.Element {
           >
             <div className="hero-card__header">
               <span className="hero-card__brand">Milling Works</span>
-              <span className="hero-card__menu-btn"><List size={20} aria-hidden /></span>
             </div>
 
             <div className="hero-card__content">
@@ -117,9 +115,6 @@ export function HomePage(): JSX.Element {
           <div className="hero-panel hero-card hero-card--primary">
             <div className="hero-card__header">
               <span className="hero-card__brand">Milling Works</span>
-              <button className="hero-card__menu-btn" aria-label="Menu">
-                <List size={20} aria-hidden />
-              </button>
             </div>
 
             <div className="hero-card__content">
@@ -162,7 +157,6 @@ export function HomePage(): JSX.Element {
           >
             <div className="hero-card__header">
               <span className="hero-card__brand">Milling Works</span>
-              <span className="hero-card__menu-btn"><List size={20} aria-hidden /></span>
             </div>
 
             <div className="hero-card__content">
