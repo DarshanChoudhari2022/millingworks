@@ -17,7 +17,7 @@ interface FormValues {
 
 type FormErrors = Partial<Record<keyof FormValues, string>>
 
-const enquiryTypes = ['Crowns & Bridges', 'Dental Implants', 'Technical question'] as const
+export const enquiryTypes = ['Full-Service Dental Lab', 'Crowns & Bridges', 'Dental Implants', 'Dental Record Auditing', 'Technical question'] as const
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {}

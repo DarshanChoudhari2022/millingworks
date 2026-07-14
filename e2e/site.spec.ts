@@ -73,18 +73,18 @@ test('mobile navigation opens and follows a link using only the keyboard', async
   await page.keyboard.press('Tab')
   await expect(page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Home', exact: true })).toBeFocused()
   await page.keyboard.press('Tab')
-  await expect(page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Crowns & Bridges', exact: true })).toBeFocused()
+  await expect(page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Full-Service Dental Lab', exact: true })).toBeFocused()
   await page.keyboard.press('Enter')
-  await expect(page).toHaveURL(/\/crowns-bridges$/)
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Crowns and bridges')
+  await expect(page).toHaveURL(/\/full-service-dental-lab$/)
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Production support')
 })
 
 test('mobile menu closes after navigation', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
   await page.getByRole('button', { name: 'Open menu' }).click()
-  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Dental Implants', exact: true }).click()
-  await expect(page).toHaveURL(/\/dental-implants$/)
+  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Dental Record Auditing', exact: true }).click()
+  await expect(page).toHaveURL(/\/record-auditing$/)
   await expect(page.getByRole('button', { name: 'Open menu' })).toHaveAttribute('aria-expanded', 'false')
 })
 

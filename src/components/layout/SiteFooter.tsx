@@ -29,6 +29,8 @@ export function SiteFooter(): JSX.Element {
         {/* Navigation column */}
         <div>
           <p className="footer-label">Our Work</p>
+          <Link to="/full-service-dental-lab">Full-Service Dental Lab</Link>
+          <Link to="/record-auditing">Dental Record Auditing</Link>
           <Link to="/crowns-bridges">Crowns &amp; Bridges</Link>
           <Link to="/dental-implants">Implant Restorations</Link>
           <Link to="/about">About Us</Link>
@@ -37,11 +39,11 @@ export function SiteFooter(): JSX.Element {
 
         {/* Contact column */}
         <div>
-          <p className="footer-label">Talk to us</p>
+          <p className="footer-label">Contact Us</p>
           <a href={`tel:+${company.phoneDigits}`}>{company.phoneDisplay}</a>
           <a href={`mailto:${company.email}`}>{company.email}</a>
           <Link to="/contact">
-            Start a conversation <ArrowUpRight aria-hidden size={15} />
+            Contact Us <ArrowUpRight aria-hidden size={15} />
           </Link>
           <div className="footer-social">
             <a

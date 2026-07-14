@@ -44,4 +44,26 @@ None.
 - 390×844: each route uses its own tall blue composition; hero image and CTA remain visible; no mixed three-panel montage.
 - Mobile navigation, chatbot, contact handoff, keyboard focus, and route scrolling are covered by Playwright.
 
+## Service expansion QA — 2026-07-14
+
+### Evidence reviewed
+
+- Full-service dental lab: desktop and 390px mobile captures compared beside the supplied New Vistas reference.
+- Dental record auditing: desktop and 390px mobile captures compared beside the supplied New Vistas reference.
+- Contact: desktop and 390px mobile captures compared beside the supplied contact reference.
+
+### Findings
+
+- P0: none.
+- P1: none. All new routes, navigation links, primary calls to action, and contact service preselection work.
+- P2: resolved. The full-service page keeps the requested capability depth without inheriting the reference site's purple styling or wording.
+- P2: resolved. The auditing page presents benefits, process, compliance context, and a clear non-legal-advice boundary in the existing Milling Works system.
+- P2: resolved. Contact uses one image-led blue experience, a readable two-column desktop composition, and a stacked mobile form with no horizontal overflow.
+- P2: resolved. Route-specific titles, descriptions, keywords, canonical URLs, Open Graph data, and structured service data restore safely after navigation.
+
+### Responsive acceptance
+
+- 1440px: editorial hierarchy, section rhythm, navigation, and conversion paths remain clear.
+- 390px: headings, image crops, capability lists, workflow steps, contact details, and form controls remain readable and within the viewport.
+
 final result: passed
