@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from '@testing-library/react'
+import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { company } from '../content/company'
@@ -46,13 +46,28 @@ describe('Chatbot', () => {
     expect(launcher).toHaveFocus()
   })
 
-  it('keeps reverse keyboard navigation inside the dialog from its heading', () => {
+  it('uses a non-modal dialog without claiming the rest of the page is inert', () => {
     render(<Chatbot />)
     openAssistant()
 
-    fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Tab', shiftKey: true })
+    expect(screen.getByRole('dialog')).not.toHaveAttribute('aria-modal')
+  })
 
-    expect(screen.getByRole('button', { name: 'Talk to a person' })).toHaveFocus()
+  it('keeps controls outside the floating assistant reachable while it is open', () => {
+    render(
+      <>
+        <button type="button">Outside page action</button>
+        <Chatbot />
+      </>,
+    )
+    openAssistant()
+
+    const dialog = screen.getByRole('dialog')
+    screen.getByRole('button', { name: 'Talk to a person' }).focus()
+
+    expect(fireEvent.keyDown(dialog, { key: 'Tab' })).toBe(true)
+    screen.getByRole('button', { name: 'Outside page action' }).focus()
+    expect(screen.getByRole('button', { name: 'Outside page action' })).toHaveFocus()
   })
 
   it('shows the prepared dental lab answer with recovery actions', () => {
@@ -104,5 +119,19 @@ describe('Chatbot', () => {
 
     expect(screen.getByLabelText('Your name')).toHaveValue('')
     expect(screen.queryByDisplayValue('priya@example.com')).not.toBeInTheDocument()
+  })
+
+  it('announces the exact assistant message placed in history after reset', async () => {
+    const { container } = render(<Chatbot />)
+    openAssistant()
+    completeLeadCapture()
+
+    fireEvent.click(screen.getByRole('button', { name: 'Start over' }))
+
+    const liveRegion = container.querySelector('.chatbot__live-region')
+    const newestAssistantMessage = container.querySelector('.chatbot__message--assistant:last-child')
+    await waitFor(() => expect(liveRegion).toHaveTextContent('How can we help? Choose a topic, or prepare an enquiry for our team.'))
+    expect(newestAssistantMessage).toHaveTextContent('How can we help? Choose a topic, or prepare an enquiry for our team.')
+    expect(liveRegion?.textContent).toBe(newestAssistantMessage?.textContent)
   })
 })

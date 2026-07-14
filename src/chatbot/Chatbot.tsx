@@ -34,7 +34,6 @@ export function Chatbot(): JSX.Element {
   const nextMessageId = useRef(1)
   const launcherRef = useRef<HTMLButtonElement>(null)
   const headingRef = useRef<HTMLHeadingElement>(null)
-  const dialogRef = useRef<HTMLDivElement>(null)
   const headingId = useId()
 
   useEffect(() => {
@@ -68,29 +67,13 @@ export function Chatbot(): JSX.Element {
     setDraft('')
     nextMessageId.current = 1
     setHistory([{ id: 0, sender: 'assistant', text: openingMessage }])
-    announce('How can we help? Choose a topic or talk to a person.')
+    announce(openingMessage)
   }
 
   const handleDialogKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Escape') {
       event.preventDefault()
       dismiss()
-      return
-    }
-    if (event.key !== 'Tab') return
-
-    const focusable = Array.from(dialogRef.current?.querySelectorAll<HTMLElement>(
-      'button:not([disabled]), a[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled])',
-    ) ?? [])
-    if (focusable.length === 0) return
-    const first = focusable[0]
-    const last = focusable[focusable.length - 1]
-    if (event.shiftKey && (document.activeElement === first || document.activeElement === headingRef.current)) {
-      event.preventDefault()
-      last.focus()
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault()
-      first.focus()
     }
   }
 
@@ -177,10 +160,8 @@ export function Chatbot(): JSX.Element {
       {isOpen && (
         <div
           aria-labelledby={headingId}
-          aria-modal="true"
           className="chatbot__dialog"
           onKeyDown={handleDialogKeyDown}
-          ref={dialogRef}
           role="dialog"
         >
           <header className="chatbot__header">
