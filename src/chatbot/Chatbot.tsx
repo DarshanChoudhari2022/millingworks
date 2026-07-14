@@ -226,7 +226,15 @@ export function Chatbot(): JSX.Element {
                   </label>
                 )}
                 <div className="chatbot__form-actions">
-                  <button onClick={() => { dispatch({ type: 'back' }); setDraft(''); announce('Choose a topic or talk to a person.') }} type="button">Back to menu</button>
+                  <button onClick={() => {
+                    dispatch({ type: 'back' })
+                    setDraft('')
+                    appendHistory(
+                      { sender: 'user', text: 'Back to menu' },
+                      { sender: 'assistant', text: 'Choose a topic or talk to a person.' },
+                    )
+                    announce('Choose a topic or talk to a person.')
+                  }} type="button">Back to menu</button>
                   <button className="chatbot__submit" type="submit">{state.step === 'lead-message' ? 'Prepare handoff' : 'Continue'}<PaperPlaneTilt aria-hidden size={18} /></button>
                 </div>
               </form>

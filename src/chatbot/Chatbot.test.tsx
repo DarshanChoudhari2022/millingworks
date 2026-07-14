@@ -134,4 +134,21 @@ describe('Chatbot', () => {
     expect(newestAssistantMessage).toHaveTextContent('How can we help? Choose a topic, or prepare an enquiry for our team.')
     expect(liveRegion?.textContent).toBe(newestAssistantMessage?.textContent)
   })
+
+  it('appends and announces the same recovery exchange when leaving lead capture', async () => {
+    const { container } = render(<Chatbot />)
+    openAssistant()
+    fireEvent.click(screen.getByRole('button', { name: 'Talk to a person' }))
+
+    fireEvent.click(screen.getByRole('button', { name: 'Back to menu' }))
+
+    const userMessages = container.querySelectorAll('.chatbot__message--user')
+    const assistantMessages = container.querySelectorAll('.chatbot__message--assistant')
+    const lastUserMessage = userMessages[userMessages.length - 1]
+    const lastAssistantMessage = assistantMessages[assistantMessages.length - 1]
+    const liveRegion = container.querySelector('.chatbot__live-region')
+    expect(lastUserMessage).toHaveTextContent('Back to menu')
+    expect(lastAssistantMessage).toHaveTextContent('Choose a topic or talk to a person.')
+    await waitFor(() => expect(liveRegion?.textContent).toBe(lastAssistantMessage.textContent))
+  })
 })
