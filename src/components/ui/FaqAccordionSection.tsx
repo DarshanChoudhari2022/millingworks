@@ -12,11 +12,7 @@ export function FaqAccordionSection(): JSX.Element {
   return (
     <div className="faq-home">
       <div className="faq-home__list">
-        {homeFaqs.map((faq) => (
-          <Accordion key={faq.question} title={faq.question}>
-            <p>{faq.answer}</p>
-          </Accordion>
-        ))}
+        <Accordion items={homeFaqs} />
       </div>
       <Link to="/faqs" className="faq-home__link">
         View all FAQs <ArrowRight aria-hidden size={16} />
