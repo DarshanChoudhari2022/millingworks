@@ -2,7 +2,6 @@ import { ArrowUpRight, EnvelopeSimple, WhatsappLogo } from '@phosphor-icons/reac
 import { useState, type FormEvent, type JSX } from 'react'
 
 import { company } from '../../content/company'
-import { services } from '../../content/services'
 import { createEmailUrl, createWhatsAppUrl } from '../../lib/handoffs'
 
 interface ContactFormProps {
@@ -17,6 +16,8 @@ interface FormValues {
 }
 
 type FormErrors = Partial<Record<keyof FormValues, string>>
+
+const enquiryTypes = ['Crowns & Bridges', 'Dental Implants', 'Technical question'] as const
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {}
@@ -79,7 +80,7 @@ export function ContactForm({ defaultService = '' }: ContactFormProps): JSX.Elem
         <label htmlFor="contact-service">Service</label>
         <select id="contact-service" required value={values.service} onChange={(event) => update('service', event.target.value)} aria-describedby={errors.service ? 'contact-service-error' : undefined} aria-invalid={Boolean(errors.service)}>
           <option value="">Select a service</option>
-          {services.map((service) => <option key={service.id} value={service.title}>{service.title}</option>)}
+          {enquiryTypes.map((service) => <option key={service} value={service}>{service}</option>)}
         </select>
         {errors.service && <p id="contact-service-error" className="form-error" role="alert">{errors.service}</p>}
       </div>

@@ -7,8 +7,9 @@ import { App } from '../app/App'
 afterEach(cleanup)
 
 const pages = [
-  ['/about', 'Precision built on partnership', 'Meet the people behind Milling Works'],
-  ['/dental-lab', 'Full-Service Dental Lab', 'Eight categories. One trusted lab.'],
+  ['/about', 'Precision built on partnership', 'Built for the work between teams'],
+  ['/crowns-bridges', 'Crowns and bridges, made with intent', 'Restorations for everyday clinical work'],
+  ['/dental-implants', 'Implant restorations, carefully resolved', 'A considered route from records to restoration'],
   ['/faqs', 'Frequently Asked Questions', 'What does Milling Works do?'],
   ['/contact', 'Start a conversation', 'Tell us what you need'],
 ] as const
@@ -27,24 +28,24 @@ describe('interior pages', () => {
     })
   }
 
-  it('redirects /services to /dental-lab', () => {
+  it('redirects /services to crowns and bridges', () => {
     render(
       <MemoryRouter initialEntries={['/services']}>
         <App />
       </MemoryRouter>,
     )
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Full-Service Dental Lab' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'Crowns and bridges, made with intent' })).toBeInTheDocument()
   })
 
-  it('redirects /record-auditing to /dental-lab', () => {
+  it('redirects removed services to crowns and bridges', () => {
     render(
       <MemoryRouter initialEntries={['/record-auditing']}>
         <App />
       </MemoryRouter>,
     )
 
-    expect(screen.getByRole('heading', { level: 1, name: 'Full-Service Dental Lab' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'Crowns and bridges, made with intent' })).toBeInTheDocument()
   })
 
   it('uses native buttons and exposes accordion state', () => {
@@ -61,6 +62,6 @@ describe('interior pages', () => {
     fireEvent.click(question)
 
     expect(question).toHaveAttribute('aria-expanded', 'true')
-    expect(screen.getByText(/Milling Works is a digital dental milling centre/)).toBeVisible()
+    expect(screen.getByText(/Milling Works is a dental laboratory focused on crowns/)).toBeVisible()
   })
 })

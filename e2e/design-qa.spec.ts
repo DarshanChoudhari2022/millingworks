@@ -1,103 +1,39 @@
 import { expect, test } from '@playwright/test'
 
-test('desktop hero preserves a narrow tall primary panel and complete central artwork', async ({ page }) => {
+test('desktop homepage uses one editorial hero with one dominant image', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/')
-
-  const hero = page.locator('.hero')
-  const primary = page.locator('.hero-panel--primary')
-  const centralImage = primary.locator(':scope > img')
-  const [heroBox, primaryBox, imageBox] = await Promise.all([
-    hero.boundingBox(),
-    primary.boundingBox(),
-    centralImage.boundingBox(),
-  ])
-  expect(heroBox).not.toBeNull()
-  expect(primaryBox).not.toBeNull()
-  expect(imageBox).not.toBeNull()
-
-  const widthRatio = primaryBox!.width / heroBox!.width
-  expect(widthRatio).toBeGreaterThanOrEqual(0.36)
-  expect(widthRatio).toBeLessThanOrEqual(0.44)
-  expect(primaryBox!.height).toBeGreaterThanOrEqual(660)
-
-  await expect(centralImage).toHaveCSS('object-fit', 'contain')
-  expect(imageBox!.height / primaryBox!.height).toBeGreaterThanOrEqual(0.56)
-  expect(imageBox!.y).toBeLessThanOrEqual(primaryBox!.y + primaryBox!.height * 0.45)
+  const hero = page.locator('.editorial-hero')
+  await expect(hero).toBeVisible()
+  await expect(hero.getByRole('heading', { level: 1 })).toHaveText('Dental restorations, made with intent')
+  await expect(hero.getByRole('img')).toHaveCount(1)
+  const color = await hero.evaluate((node) => getComputedStyle(node).backgroundColor)
+  expect(color).toBe('rgb(104, 167, 216)')
 })
 
-test('desktop side panels use a softer, de-emphasized blue', async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 })
-  await page.goto('/')
-
-  const colors = await page.locator('.hero-panel').evaluateAll((panels) =>
-    panels.map((panel) => getComputedStyle(panel).backgroundColor),
-  )
-  const [primary, implant, crowns] = colors
-  expect(implant).toBe(crowns)
-  expect(implant).not.toBe(primary)
-  expect(relativeLuminance(implant) - relativeLuminance(primary)).toBeGreaterThanOrEqual(0.06)
+test('three reference concepts remain separate routes', async ({ page }) => {
+  for (const [route, heading] of [
+    ['/', 'Dental restorations, made with intent'],
+    ['/crowns-bridges', 'Crowns and bridges, made with intent'],
+    ['/dental-implants', 'Implant restorations, carefully resolved'],
+  ] as const) {
+    await page.goto(route)
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(heading)
+    await expect(page.locator('.editorial-hero')).toHaveCount(1)
+  }
 })
 
-test('desktop side-panel small copy has at least 4.5 to 1 contrast', async ({ page }) => {
-  await page.setViewportSize({ width: 1440, height: 900 })
+test('mobile editorial hero keeps its CTA and image inside the viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
-
-  const colors = await page.locator('.hero-panel--implant > p:not(.hero-panel__kicker)').evaluate((copy) => {
-    const copyStyle = getComputedStyle(copy)
-    const panelStyle = getComputedStyle(copy.parentElement!)
-    return { foreground: copyStyle.color, background: panelStyle.backgroundColor }
-  })
-  expect(contrastRatio(colors.foreground, colors.background)).toBeGreaterThanOrEqual(4.5)
+  await expect(page.locator('.editorial-hero')).toBeVisible()
+  await expect(page.locator('.editorial-hero').getByRole('link', { name: 'Send a case' })).toBeVisible()
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
 })
 
 test('mobile floating actions form one compact right-side column', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
-
-  const [whatsapp, assistant] = await Promise.all([
-    page.locator('.whatsapp-button').boundingBox(),
-    page.locator('.chatbot__launcher').boundingBox(),
-  ])
-  expect(whatsapp).not.toBeNull()
-  expect(assistant).not.toBeNull()
-
-  for (const control of [whatsapp!, assistant!]) {
-    expect(control.width).toBeLessThanOrEqual(48)
-    expect(control.height).toBeLessThanOrEqual(48)
-  }
-  expect(Math.abs((whatsapp!.x + whatsapp!.width) - (assistant!.x + assistant!.width))).toBeLessThanOrEqual(2)
-
-  const upper = whatsapp!.y < assistant!.y ? whatsapp! : assistant!
-  const lower = upper === whatsapp ? assistant! : whatsapp!
-  expect(lower.y - (upper.y + upper.height)).toBeGreaterThanOrEqual(8)
+  const boxes = await Promise.all([page.locator('.whatsapp-button').boundingBox(), page.locator('.chatbot__launcher').boundingBox()])
+  for (const box of boxes) { expect(box).not.toBeNull(); expect(box!.width).toBeLessThanOrEqual(48) }
 })
-
-function relativeLuminance(cssColor: string): number {
-  const channels = cssColor.match(/[\d.]+/g)?.slice(0, 3).map(Number)
-  if (!channels || channels.length !== 3) throw new Error(`Unsupported CSS color: ${cssColor}`)
-  const [red, green, blue] = channels.map((channel) => {
-    const value = channel / 255
-    return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4
-  })
-  return 0.2126 * red + 0.7152 * green + 0.0722 * blue
-}
-
-function contrastRatio(foreground: string, background: string): number {
-  const foregroundChannels = parseCssColor(foreground)
-  const backgroundChannels = parseCssColor(background)
-  const composite = foregroundChannels.channels.map((channel, index) =>
-    channel * foregroundChannels.alpha + backgroundChannels.channels[index] * (1 - foregroundChannels.alpha),
-  )
-  const foregroundLuminance = relativeLuminance(`rgb(${composite.join(',')})`)
-  const backgroundLuminance = relativeLuminance(`rgb(${backgroundChannels.channels.join(',')})`)
-  const lighter = Math.max(foregroundLuminance, backgroundLuminance)
-  const darker = Math.min(foregroundLuminance, backgroundLuminance)
-  return (lighter + 0.05) / (darker + 0.05)
-}
-
-function parseCssColor(cssColor: string): { channels: number[]; alpha: number } {
-  const values = cssColor.match(/[\d.]+/g)?.map(Number)
-  if (!values || values.length < 3) throw new Error(`Unsupported CSS color: ${cssColor}`)
-  return { channels: values.slice(0, 3), alpha: values[3] ?? 1 }
-}

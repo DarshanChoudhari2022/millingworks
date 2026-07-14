@@ -5,8 +5,10 @@ import { Link, NavLink } from 'react-router-dom'
 import { MillingWorksLogo } from '../../brand/MillingWorksLogo'
 
 const navigation = [
+  ['Home', '/'],
+  ['Crowns & Bridges', '/crowns-bridges'],
+  ['Dental Implants', '/dental-implants'],
   ['About', '/about'],
-  ['Dental Lab', '/dental-lab'],
   ['FAQs', '/faqs'],
 ] as const
 

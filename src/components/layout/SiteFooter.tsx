@@ -17,9 +17,8 @@ export function SiteFooter(): JSX.Element {
             <MillingWorksLogo decorative inverse />
           </Link>
           <p>
-            Precision CAD/CAM dental milling centre and digital dental laboratory — delivering
-            quality crowns, bridges, implant restorations and prosthetics to UK and European
-            dental practices.
+            A focused dental laboratory for crowns, bridges and implant restorations, built
+            around careful review and clear case communication.
           </p>
           <div className="footer-hours">
             <Clock size={14} aria-hidden />
@@ -30,9 +29,8 @@ export function SiteFooter(): JSX.Element {
         {/* Navigation column */}
         <div>
           <p className="footer-label">Our Work</p>
-          <Link to="/dental-lab">Dental Lab</Link>
-          <Link to="/dental-lab">Crowns & Bridges</Link>
-          <Link to="/dental-lab">Implant Restorations</Link>
+          <Link to="/crowns-bridges">Crowns &amp; Bridges</Link>
+          <Link to="/dental-implants">Implant Restorations</Link>
           <Link to="/about">About Us</Link>
           <Link to="/faqs">FAQs</Link>
         </div>
@@ -69,21 +67,12 @@ export function SiteFooter(): JSX.Element {
           </div>
         </div>
 
-        {/* Legal column */}
-        <div>
-          <p className="footer-label">Legal</p>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-          <Link to="/terms">Terms &amp; Conditions</Link>
-          <Link to="/gdpr">GDPR Statement</Link>
-          <Link to="/careers">Careers</Link>
-        </div>
       </div>
 
       <div className="shell site-footer__bottom">
         <small>© {new Date().getFullYear()} Milling Works. All rights reserved.</small>
         <small>
-          Precision dental milling centre · Digital dental laboratory · Crown and bridge
-          laboratory · Dental production services
+          Crown and bridge laboratory · Implant restoration support · Dental laboratory services
         </small>
       </div>
     </footer>

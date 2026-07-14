@@ -1,13 +1,10 @@
-import { Handshake, UsersThree } from '@phosphor-icons/react'
 import type { JSX } from 'react'
-
-import { company } from '../content/company'
 import { PageHero } from '../components/ui/PageHero'
 
 export function AboutPage(): JSX.Element {
   return (
     <>
-      <PageHero eyebrow="About Milling Works" title="Precision built on partnership" summary="Milling Works brings dental production, digital support, and operational services together around clear communication and dependable handoffs." />
+      <PageHero eyebrow="About Milling Works" title="Precision built on partnership" summary="Milling Works is a focused dental laboratory for crowns, bridges and implant restorations, working with practices and partner laboratories through clear case communication." />
 
       <section className="section interior-band">
         <div className="shell interior-band__grid">
@@ -15,7 +12,7 @@ export function AboutPage(): JSX.Element {
             <p className="eyebrow">Built for the work between teams</p>
             <h2>About Milling Works</h2>
           </div>
-          <p>Our approach connects review, production support, quality control, reporting, and delivery without adding unsupported promises to the process.</p>
+          <p>Every case begins with the prescription and available records. We review what has been supplied, resolve questions early and keep the laboratory process visible through to dispatch.</p>
         </div>
       </section>
     </>

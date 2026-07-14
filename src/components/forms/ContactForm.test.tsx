@@ -72,7 +72,7 @@ describe('ContactForm', () => {
 
     fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'Priya Shah' } })
     fireEvent.change(screen.getByLabelText('Email'), { target: { value: 'priya@example.com' } })
-    fireEvent.change(screen.getByLabelText('Service'), { target: { value: 'Full-Service Dental Lab' } })
+    fireEvent.change(screen.getByLabelText('Service'), { target: { value: 'Crowns & Bridges' } })
     fireEvent.change(screen.getByLabelText('Message'), { target: { value: 'Please review a crown case.' } })
     fireEvent.click(screen.getByRole('button', { name: 'Prepare enquiry' }))
 
@@ -84,7 +84,7 @@ describe('ContactForm', () => {
     expect(whatsapp).toHaveAttribute('href', expect.stringContaining(`wa.me/${company.phoneDigits}`))
     const preparedMessage = new URL(whatsapp.getAttribute('href')!).searchParams.get('text')
     expect(preparedMessage).toContain('Priya Shah')
-    expect(preparedMessage).toContain('Full-Service Dental Lab')
+    expect(preparedMessage).toContain('Crowns & Bridges')
     expect(screen.getByRole('link', { name: 'Open email' })).toHaveAttribute('href', expect.stringContaining(`mailto:${company.email}`))
     expect(screen.queryByText(/sent|delivered/i)).not.toBeInTheDocument()
   })

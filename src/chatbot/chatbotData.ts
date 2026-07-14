@@ -1,7 +1,8 @@
 import { company } from '../content/company'
 
 export type ChatTopicId =
-  | 'dental-lab'
+  | 'crowns-bridges'
+  | 'dental-implants'
   | 'digital-case-submission'
   | 'turnaround-delivery'
   | 'pricing-quotations'
@@ -15,10 +16,16 @@ export interface ChatTopic {
 }
 
 export const chatbotTopics: Record<ChatTopicId, ChatTopic> = {
-  'dental-lab': {
-    id: 'dental-lab',
-    label: 'Dental lab services',
-    answer: 'We produce crowns, bridges, veneers, implant restorations, and full arch prosthetics using advanced 5-axis CNC milling. Every case is digitally designed and quality-checked before dispatch.',
+  'crowns-bridges': {
+    id: 'crowns-bridges',
+    label: 'Crowns and bridges',
+    answer: 'Milling Works supports crown and bridge cases through record review, laboratory production, finishing and a final check against the agreed case information.',
+    actions: ['menu', 'human'],
+  },
+  'dental-implants': {
+    id: 'dental-implants',
+    label: 'Dental implants',
+    answer: 'For implant cases, share the prescription and available records. The laboratory can review the case information and clarify the proposed workflow before production begins.',
     actions: ['menu', 'human'],
   },
   'digital-case-submission': {

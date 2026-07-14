@@ -3,7 +3,8 @@ import { expect, test, type Page } from '@playwright/test'
 const routes = [
   '/',
   '/about',
-  '/services',
+  '/crowns-bridges',
+  '/dental-implants',
   '/dental-lab',
   '/record-auditing',
   '/faqs',
@@ -70,35 +71,26 @@ test('mobile navigation opens and follows a link using only the keyboard', async
   await page.keyboard.press('Enter')
   await expect(menuButton).toHaveAttribute('aria-expanded', 'true')
   await page.keyboard.press('Tab')
-  await expect(page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'About', exact: true })).toBeFocused()
+  await expect(page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Home', exact: true })).toBeFocused()
+  await page.keyboard.press('Tab')
+  await expect(page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Crowns & Bridges', exact: true })).toBeFocused()
   await page.keyboard.press('Enter')
-  await expect(page).toHaveURL(/\/about$/)
-  await expect(page.getByRole('heading', { level: 1 })).toContainText('Precision built on partnership')
+  await expect(page).toHaveURL(/\/crowns-bridges$/)
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Crowns and bridges')
 })
 
 test('mobile menu closes after navigation', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
   await page.getByRole('button', { name: 'Open menu' }).click()
-  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Services', exact: true }).click()
-  await expect(page).toHaveURL(/\/services$/)
+  await page.getByRole('navigation', { name: 'Primary navigation' }).getByRole('link', { name: 'Dental Implants', exact: true }).click()
+  await expect(page).toHaveURL(/\/dental-implants$/)
   await expect(page.getByRole('button', { name: 'Open menu' })).toHaveAttribute('aria-expanded', 'false')
 })
 
-test('mobile page-hero metrics do not collide', async ({ page }) => {
+test('mobile service pages keep editorial media within the viewport', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
-  await page.goto('/dental-lab')
-
-  const labelsAreSeparated = await page.locator('.page-hero__metrics dd').evaluateAll((labels) => {
-    const rects = labels.map((label) => {
-      const range = document.createRange()
-      range.selectNodeContents(label)
-      return range.getBoundingClientRect().toJSON()
-    })
-    const [first, second] = rects
-    const verticallySeparated = first.bottom <= second.top || second.bottom <= first.top
-    const horizontalGap = Math.max(second.left - first.right, first.left - second.right)
-    return verticallySeparated || horizontalGap >= 8
-  })
-  expect(labelsAreSeparated).toBe(true)
+  await page.goto('/dental-implants')
+  await expect(page.locator('.editorial-hero__media img')).toBeVisible()
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
 })

@@ -8,16 +8,16 @@ describe('chatReducer', () => {
     expect(initialChatState).toMatchObject({ step: 'menu', topicId: null })
   })
 
-  it('selects the dental lab prepared answer and its recovery actions', () => {
-    const state = chatReducer(initialChatState, { type: 'select-topic', topicId: 'dental-lab' })
+  it('selects the crown and bridge answer and its recovery actions', () => {
+    const state = chatReducer(initialChatState, { type: 'select-topic', topicId: 'crowns-bridges' })
 
-    expect(state).toMatchObject({ step: 'answer', topicId: 'dental-lab' })
-    expect(chatbotTopics['dental-lab'].answer).toMatch(/crowns.*bridges.*veneers/i)
-    expect(chatbotTopics['dental-lab'].actions).toEqual(expect.arrayContaining(['menu', 'human']))
+    expect(state).toMatchObject({ step: 'answer', topicId: 'crowns-bridges' })
+    expect(chatbotTopics['crowns-bridges'].answer).toMatch(/crown and bridge cases/i)
+    expect(chatbotTopics['crowns-bridges'].actions).toEqual(expect.arrayContaining(['menu', 'human']))
   })
 
   it('returns to the menu', () => {
-    const answer = chatReducer(initialChatState, { type: 'select-topic', topicId: 'dental-lab' })
+    const answer = chatReducer(initialChatState, { type: 'select-topic', topicId: 'crowns-bridges' })
 
     expect(chatReducer(answer, { type: 'back' })).toMatchObject({ step: 'menu', topicId: null })
   })
@@ -53,7 +53,7 @@ describe('chatReducer', () => {
     const populated = {
       ...initialChatState,
       step: 'handoff' as const,
-      topicId: 'dental-lab' as const,
+      topicId: 'crowns-bridges' as const,
       lead: {
         name: 'Priya Shah',
         contact: 'priya@example.com',

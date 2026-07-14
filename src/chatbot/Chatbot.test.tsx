@@ -18,7 +18,7 @@ function completeLeadCapture() {
   fireEvent.click(screen.getByRole('button', { name: 'Continue' }))
   fireEvent.change(screen.getByLabelText('Phone or email'), { target: { value: 'priya@example.com' } })
   fireEvent.click(screen.getByRole('button', { name: 'Continue' }))
-  fireEvent.change(screen.getByLabelText('Service'), { target: { value: 'Full-Service Dental Lab' } })
+  fireEvent.change(screen.getByLabelText('Service'), { target: { value: 'Crowns & Bridges' } })
   fireEvent.click(screen.getByRole('button', { name: 'Continue' }))
   fireEvent.change(screen.getByLabelText('How can we help?'), { target: { value: 'Please review a crown case.' } })
   fireEvent.click(screen.getByRole('button', { name: 'Prepare handoff' }))
@@ -70,15 +70,15 @@ describe('Chatbot', () => {
     expect(screen.getByRole('button', { name: 'Outside page action' })).toHaveFocus()
   })
 
-  it('shows the prepared dental lab answer with recovery actions', () => {
+  it('shows the prepared crown and bridge answer with recovery actions', () => {
     render(<Chatbot />)
     openAssistant()
 
-    fireEvent.click(screen.getByRole('button', { name: 'Dental lab services' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Crowns and bridges' }))
 
     expect(screen.getByText(/how can we help\? choose a topic/i)).toBeVisible()
-    expect(screen.getByText('Dental lab services', { selector: 'p' })).toBeVisible()
-    expect(screen.getByText(/Every case reviewed against your spec/i)).toBeVisible()
+    expect(screen.getByText('Crowns and bridges', { selector: 'p' })).toBeVisible()
+    expect(screen.getByText(/record review, laboratory production/i)).toBeVisible()
     expect(screen.getByRole('button', { name: 'Back to menu' })).toBeVisible()
     expect(screen.getByRole('button', { name: 'Talk to a person' })).toBeVisible()
   })
@@ -99,13 +99,13 @@ describe('Chatbot', () => {
   it('preserves the conversation while minimized', () => {
     render(<Chatbot />)
     openAssistant()
-    fireEvent.click(screen.getByRole('button', { name: 'Dental lab services' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Crowns and bridges' }))
 
     fireEvent.click(screen.getByRole('button', { name: 'Minimize assistant' }))
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
     fireEvent.click(screen.getByRole('button', { name: 'Resume Milling Works assistant' }))
 
-    expect(screen.getByText(/Every case reviewed against your spec/i)).toBeVisible()
+    expect(screen.getByText(/record review, laboratory production/i)).toBeVisible()
   })
 
   it('resets the assistant and clears personal data', () => {
@@ -114,7 +114,7 @@ describe('Chatbot', () => {
     completeLeadCapture()
 
     fireEvent.click(screen.getByRole('button', { name: 'Start over' }))
-    expect(screen.getByRole('button', { name: 'Dental lab services' })).toBeVisible()
+    expect(screen.getByRole('button', { name: 'Crowns and bridges' })).toBeVisible()
     fireEvent.click(screen.getByRole('button', { name: 'Talk to a person' }))
 
     expect(screen.getByLabelText('Your name')).toHaveValue('')
