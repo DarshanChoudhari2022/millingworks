@@ -6,8 +6,8 @@ interface PlaceholderPageProps {
 
 export function PlaceholderPage({ title }: PlaceholderPageProps): JSX.Element {
   return (
-    <main>
+    <div className="placeholder-page">
       <h1>{title}</h1>
-    </main>
+    </div>
   )
 }

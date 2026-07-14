@@ -6,7 +6,7 @@ import { App } from './App'
 
 describe('application routes', () => {
   it('renders the about page', () => {
-    render(
+    const { container } = render(
       <MemoryRouter initialEntries={['/about']}>
         <App />
       </MemoryRouter>,
@@ -15,6 +15,7 @@ describe('application routes', () => {
     expect(
       screen.getByRole('heading', { name: 'About Milling Works' }),
     ).toBeInTheDocument()
+    expect(container.querySelectorAll('main')).toHaveLength(1)
   })
 
   it('renders a not-found page for an unknown route', () => {

@@ -1,1 +1,48 @@
-/* Global styles are introduced with the visual foundation. */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+@import './components.css';
+
+:root {
+  --navy: #071a33;
+  --blue: #086bd8;
+  --blue-deep: #0758bb;
+  --sky: #62b8f6;
+  --lime: #c8ff3d;
+  --mint: #dff8ef;
+  --white: #ffffff;
+  --ink: #10243b;
+  --muted: #607083;
+  --line: #dce5eb;
+  --surface: #f5f8fa;
+  --radius-sm: 16px;
+  --radius-md: 26px;
+  --radius-lg: 38px;
+  --shadow-soft: 0 18px 55px rgba(9, 35, 65, 0.1);
+  --shadow-card: 0 20px 65px rgba(3, 37, 78, 0.18);
+  --shell: 1240px;
+  --display: clamp(3.5rem, 7.2vw, 7.9rem);
+  --h2: clamp(2.25rem, 4.1vw, 4.75rem);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--white); font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
+body, button, a { font: inherit; }
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { color: inherit; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { font-family: 'Manrope', sans-serif; letter-spacing: -0.045em; }
+p { line-height: 1.7; }
+.shell { width: min(calc(100% - 40px), var(--shell)); margin-inline: auto; }
+.section { padding-block: clamp(5.5rem, 10vw, 9rem); }
+.skip-link { position: fixed; z-index: 1000; top: 12px; left: 12px; padding: 10px 16px; color: var(--white); background: var(--navy); border-radius: 10px; transform: translateY(-160%); }
+.skip-link:focus { transform: translateY(0); }
+:focus-visible { outline: 3px solid var(--lime); outline-offset: 4px; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 24px; border-radius: 999px; color: var(--white); background: var(--navy); font-weight: 700; transition: transform .2s ease, box-shadow .2s ease; }
+.button:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(7, 26, 51, .18); }
+.button--compact { min-height: 44px; padding-inline: 20px; }
+.button--light { color: var(--navy); background: var(--white); }
+.eyebrow { margin-bottom: 16px; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: .14em; line-height: 1.4; text-transform: uppercase; }
+
+@media (max-width: 640px) { .shell { width: min(calc(100% - 24px), var(--shell)); } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }
