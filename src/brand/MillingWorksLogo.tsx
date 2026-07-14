@@ -22,6 +22,7 @@ export function MillingWorksLogo({
       aria-label="Milling Works home"
       className={className}
       data-inverse={inverse ? 'true' : undefined}
+      role="img"
     >
       <img
         alt=""

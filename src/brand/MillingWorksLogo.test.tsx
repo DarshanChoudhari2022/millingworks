@@ -5,27 +5,38 @@ import { MillingWorksLogo } from './MillingWorksLogo'
 
 describe('MillingWorksLogo', () => {
   it('renders an accessible mark and the full brand name by default', () => {
-    render(<MillingWorksLogo />)
+    const { container } = render(<MillingWorksLogo />)
 
-    expect(screen.getByLabelText('Milling Works home')).toBeInTheDocument()
+    const logo = screen.getByRole('img', { name: 'Milling Works home' })
+
+    expect(logo).toBeInTheDocument()
     expect(
-      screen.getByTitle('Milling Works MW tooth mark'),
+      within(logo).getByTitle('Milling Works MW tooth mark'),
     ).toBeInTheDocument()
     expect(screen.getByText('Milling Works')).toBeInTheDocument()
+
+    const mark = container.querySelector('img')
+    expect(mark).toHaveAttribute(
+      'src',
+      expect.stringContaining('milling-works-mark.png'),
+    )
+    expect(container.querySelector('svg')).not.toBeInTheDocument()
   })
 
   it('hides the full brand name in compact mode', () => {
     const { container } = render(<MillingWorksLogo compact />)
 
+    expect(
+      within(container).getByRole('img', { name: 'Milling Works home' }),
+    ).toBeInTheDocument()
     expect(within(container).queryByText('Milling Works')).not.toBeInTheDocument()
   })
 
   it('exposes inverse styling for dark backgrounds', () => {
     const { container } = render(<MillingWorksLogo inverse />)
 
-    expect(within(container).getByLabelText('Milling Works home')).toHaveAttribute(
-      'data-inverse',
-      'true',
-    )
+    expect(
+      within(container).getByRole('img', { name: 'Milling Works home' }),
+    ).toHaveAttribute('data-inverse', 'true')
   })
 })
