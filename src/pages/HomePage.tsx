@@ -69,7 +69,45 @@ export function HomePage(): JSX.Element {
 
         <div className="hero-cards-container">
 
-          {/* ── Card 1: Implant Solutions + Stats ── */}
+          {/* ── Card 1: Primary hero card ── */}
+          <div className="hero-panel hero-card hero-card--primary">
+            <div className="hero-card__header">
+              <span className="hero-card__brand">Milling Works</span>
+            </div>
+
+            <div className="hero-card__content">
+              <p className="hero-card__eyebrow-label">For UK &amp; European dental practices</p>
+              <h1 id="hero-title" className="hero-card__title">
+                Precision<br />Dental<br />Production
+              </h1>
+              <p className="hero-card__subtitle">
+                Quality lab work. On time. Every case.
+              </p>
+            </div>
+
+            <div className="hero-card__main-image-wrap">
+              <img
+                alt="Dental technicians working on precision restorations"
+                className="hero-card__main-image"
+                src={centerLab}
+              />
+            </div>
+
+            {/* Rotating consultation badge */}
+            <Link to="/contact" className="rotating-badge-btn" aria-label="Book a Consultation">
+              <svg className="rotating-badge-btn__text" viewBox="0 0 100 100" aria-hidden>
+                <path d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" id="textPath" />
+                <text className="rotating-badge-btn__textpath">
+                  <textPath href="#textPath">BOOK YOUR CONSULTATION • BOOK YOUR CONSULTATION • </textPath>
+                </text>
+              </svg>
+              <div className="rotating-badge-btn__center">
+                <ArrowRight size={21} className="rotating-badge-btn__arrow" aria-hidden />
+              </div>
+            </Link>
+          </div>
+
+          {/* ── Card 2: Implant Solutions + Stats ── */}
           <Link
             to="/dental-lab"
             aria-label="Explore dental implant solutions"
@@ -110,44 +148,6 @@ export function HomePage(): JSX.Element {
               </div>
             </div>
           </Link>
-
-          {/* ── Card 2: Primary hero card ── */}
-          <div className="hero-panel hero-card hero-card--primary">
-            <div className="hero-card__header">
-              <span className="hero-card__brand">Milling Works</span>
-            </div>
-
-            <div className="hero-card__content">
-              <p className="hero-card__eyebrow-label">For UK &amp; European dental practices</p>
-              <h1 id="hero-title" className="hero-card__title">
-                Precision<br />Dental<br />Production
-              </h1>
-              <p className="hero-card__subtitle">
-                Quality lab work. On time. Every case.
-              </p>
-            </div>
-
-            <div className="hero-card__main-image-wrap">
-              <img
-                alt="Dental technicians working on precision restorations"
-                className="hero-card__main-image"
-                src={centerLab}
-              />
-            </div>
-
-            {/* Rotating consultation badge */}
-            <Link to="/contact" className="rotating-badge-btn" aria-label="Book a Consultation">
-              <svg className="rotating-badge-btn__text" viewBox="0 0 100 100" aria-hidden>
-                <path d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" id="textPath" />
-                <text className="rotating-badge-btn__textpath">
-                  <textPath href="#textPath">BOOK YOUR CONSULTATION • BOOK YOUR CONSULTATION • </textPath>
-                </text>
-              </svg>
-              <div className="rotating-badge-btn__center">
-                <ArrowRight size={21} className="rotating-badge-btn__arrow" aria-hidden />
-              </div>
-            </Link>
-          </div>
 
           {/* ── Card 3: Dental Crowns ── */}
           <Link
