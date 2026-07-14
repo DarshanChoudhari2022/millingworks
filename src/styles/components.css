@@ -141,7 +141,7 @@
 .interior-band .eyebrow { color: var(--lime); }
 .interior-band p { margin: 0; color: #adbed0; }
 .service-list { border-top: 1px solid var(--line); }
-.service-list__item { display: grid; grid-template-columns: 100px 1fr; gap: 30px; padding: 58px 0; border-bottom: 1px solid var(--line); }
+.service-list__item { display: grid; grid-template-columns: 100px 1fr; gap: 30px; padding: 58px 0; scroll-margin-top: 96px; border-bottom: 1px solid var(--line); }
 .service-list__item > div { max-width: 800px; }
 .service-list__item h2 { font-size: clamp(2rem, 4vw, 4.1rem); }
 .service-list__item p, .service-list__item li { color: var(--muted); }

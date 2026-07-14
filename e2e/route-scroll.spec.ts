@@ -18,6 +18,13 @@ for (const sectionId of ['dental-design-support', 'practice-outsourcing']) {
     await page.locator(`a[href="/services#${sectionId}"]`).click()
 
     await expect(page).toHaveURL(new RegExp(`/services#${sectionId}$`))
-    await expect(page.locator(`#${sectionId}`)).toBeInViewport()
+    const target = page.locator(`#${sectionId}`)
+    await expect(target).toBeInViewport()
+    await expect.poll(async () => {
+      const targetBox = await target.boundingBox()
+      const headerBox = await page.locator('.site-header').boundingBox()
+      if (!targetBox || !headerBox) throw new Error('Expected visible service target and sticky header')
+      return targetBox.y - (headerBox.y + headerBox.height)
+    }).toBeGreaterThanOrEqual(0)
   })
 }

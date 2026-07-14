@@ -51,7 +51,8 @@
 ## Comparison History
 
 - Iteration 1: identified one P1 hero-composition mismatch and two P2 color/mobile-control mismatches. Fixes pending.
-- Iteration 2: changed the primary panel from 50% to approximately 40% of the desktop hero, increased its height to about 680px, reduced headline density, and changed the central image to a taller contained presentation. The complete implant base and all three technicians are now visible. Side panels now use a softer laboratory blue, and the 390px floating controls are 48px and vertically stacked. Post-fix browser evidence: `evidence/design-qa/home-desktop-iteration-2-iab.png`, `evidence/design-qa/home-mobile-iteration-2.png`, and `evidence/design-qa/desktop-side-by-side-iteration-2.png`. Focused E2E 3/3, unit 40/40, full E2E 42/42, and production build passed.
+- Iteration 2: changed the primary panel from 50% to approximately 40% of the desktop hero, increased its height to about 680px, reduced headline density, and changed the central image to a taller contained presentation. The complete implant base and all three technicians are now visible. Side panels now use a softer laboratory blue, and the 390px floating controls are 48px and vertically stacked. Post-fix browser evidence: `evidence/design-qa/home-desktop-iteration-2-iab.png`, `evidence/design-qa/home-mobile-iteration-2.png`, and `evidence/design-qa/desktop-side-by-side-iteration-2.png`.
+- Final verification: in-app pathname and service-anchor navigation, side-panel small-copy contrast, and the real-mark favicon were added to the automated coverage. Unit 41/41, full E2E 46/46, and production build passed; service anchors also clear the sticky header.
 
 ## Final Findings
 
