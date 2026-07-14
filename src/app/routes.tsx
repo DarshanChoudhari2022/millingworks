@@ -3,19 +3,24 @@ import type { RouteObject } from 'react-router-dom'
 import { SiteLayout } from '../components/layout/SiteLayout'
 import { HomePage } from '../pages/HomePage'
 import { NotFoundPage } from '../pages/NotFoundPage'
-import { PlaceholderPage } from '../pages/PlaceholderPage'
+import { AboutPage } from '../pages/AboutPage'
+import { ContactPage } from '../pages/ContactPage'
+import { DentalLabPage } from '../pages/DentalLabPage'
+import { FaqPage } from '../pages/FaqPage'
+import { RecordAuditingPage } from '../pages/RecordAuditingPage'
+import { ServicesPage } from '../pages/ServicesPage'
 
 export const appRoutes: RouteObject[] = [
   {
     element: <SiteLayout />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: '/about', element: <PlaceholderPage title="About Milling Works" /> },
-      { path: '/services', element: <PlaceholderPage title="Services" /> },
-      { path: '/dental-lab', element: <PlaceholderPage title="Dental Lab" /> },
-      { path: '/record-auditing', element: <PlaceholderPage title="Record Auditing" /> },
-      { path: '/faqs', element: <PlaceholderPage title="FAQs" /> },
-      { path: '/contact', element: <PlaceholderPage title="Contact" /> },
+      { path: '/about', element: <AboutPage /> },
+      { path: '/services', element: <ServicesPage /> },
+      { path: '/dental-lab', element: <DentalLabPage /> },
+      { path: '/record-auditing', element: <RecordAuditingPage /> },
+      { path: '/faqs', element: <FaqPage /> },
+      { path: '/contact', element: <ContactPage /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },
