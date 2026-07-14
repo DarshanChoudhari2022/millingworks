@@ -1,12 +1,13 @@
-import { ChatCircleDots, CheckCircle, Cube, Files, Truck } from '@phosphor-icons/react'
+import { ChatCircleDots, CheckCircle, Cube, Files, Package, Truck } from '@phosphor-icons/react'
 import { useEffect, useRef, type ComponentType, type JSX } from 'react'
 
 const steps: Array<{ title: string; copy: string; Icon: ComponentType<{ size?: number; 'aria-hidden'?: boolean }> }> = [
-  { title: 'Share the case', copy: 'Send files, notes, and the delivery brief through your preferred secure workflow.', Icon: Files },
-  { title: 'Confirm the plan', copy: 'We review inputs, flag questions early, and align on scope before work begins.', Icon: ChatCircleDots },
-  { title: 'Design and produce', copy: 'Digital specialists move the case through a controlled, traceable production path.', Icon: Cube },
-  { title: 'Quality review', copy: 'Defined checks protect consistency, accuracy, and the details specified by your team.', Icon: CheckCircle },
-  { title: 'Deliver and support', copy: 'Cases are prepared for handoff with responsive support after delivery.', Icon: Truck },
+  { title: 'Upload STL', copy: 'Send your digital impression files through our secure portal or email — STL, PLY, OBJ all accepted.', Icon: Files },
+  { title: 'Design', copy: 'Our CAD specialists design the restoration in Exocad or 3Shape, following your prescription and preferences.', Icon: ChatCircleDots },
+  { title: 'Review', copy: 'You receive a digital preview for approval before any material is cut. Changes are handled within the workflow.', Icon: CheckCircle },
+  { title: 'Mill', copy: 'Precision 5-axis CNC milling in your chosen material — zirconia, E.max, PMMA, titanium, CoCr or PEEK.', Icon: Cube },
+  { title: 'Quality check', copy: 'Multi-point QC including marginal fit, shade matching, occlusion and final visual inspection against your spec.', Icon: Package },
+  { title: 'Ship', copy: 'Tracked, insured delivery to your practice. Cases packaged to dental industry standards with full documentation.', Icon: Truck },
 ]
 
 export function ProcessSteps(): JSX.Element {

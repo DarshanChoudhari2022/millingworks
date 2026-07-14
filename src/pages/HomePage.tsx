@@ -1,8 +1,8 @@
 import {
   ArrowRight,
   ChatCircleDots,
+  Factory,
   GlobeHemisphereWest,
-  LockKey,
   SealCheck,
   ShieldCheck,
   Timer,
@@ -17,29 +17,17 @@ import drReed from '../assets/dr-reed.webp'
 import implant from '../assets/hero-implant.webp'
 import { AnimateOnScroll } from '../components/ui/AnimateOnScroll'
 import { CallToAction } from '../components/ui/CallToAction'
+import { FaqAccordionSection } from '../components/ui/FaqAccordionSection'
+import { MaterialCard } from '../components/ui/MaterialCard'
 import { ProcessSteps } from '../components/ui/ProcessSteps'
 import { SectionIntro } from '../components/ui/SectionIntro'
 import { ServiceCard } from '../components/ui/ServiceCard'
+import { TechGrid } from '../components/ui/TechGrid'
+import { TrustMetrics } from '../components/ui/TrustMetrics'
+import { WhyChooseCard } from '../components/ui/WhyChooseCard'
+import { materials } from '../content/materials'
 import { services } from '../content/services'
-
-/* ── Proof points ─────────────────────────────────────── */
-const proofPoints = [
-  {
-    title: 'Fewer remakes. Higher consistency.',
-    copy: 'Every case passes defined acceptance checks before it leaves us. If it doesn\'t meet your spec, we resolve it before delivery — not after.',
-    Icon: SealCheck,
-  },
-  {
-    title: 'GDPR-safe from day one.',
-    copy: 'Patient data and case files are handled within documented, compliant workflows. We sign data-processing agreements and NDAs as standard — no chasing required.',
-    Icon: LockKey,
-  },
-  {
-    title: 'UK-hours support. Zero time-zone friction.',
-    copy: 'Your team reaches us during UK working hours. Urgent queries get a same-day response. We structure communication around your schedule, not ours.',
-    Icon: GlobeHemisphereWest,
-  },
-] as const
+import { differentiators } from '../content/whyChooseUs'
 
 /* ── Trust strip items ────────────────────────────────── */
 const trustItems = [
@@ -53,7 +41,7 @@ export function HomePage(): JSX.Element {
   return (
     <>
       {/* ══════════════════════════════════════
-          HERO
+          1. HERO — Stronger Value Proposition
       ══════════════════════════════════════ */}
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-glow hero-glow--1" />
@@ -63,7 +51,7 @@ export function HomePage(): JSX.Element {
         {/* Top tagline */}
         <p className="hero-tagline">
           <span className="hero-tagline__eyebrow">
-            Digital Dental Production &nbsp;·&nbsp; Serving UK &amp; European Practices
+            Digital Dental Laboratory &nbsp;·&nbsp; Serving UK &amp; European Practices
           </span>
         </p>
 
@@ -76,18 +64,19 @@ export function HomePage(): JSX.Element {
             </div>
 
             <div className="hero-card__content">
-              <p className="hero-card__eyebrow-label">For UK &amp; European dental practices</p>
+              <p className="hero-card__eyebrow-label">CAD/CAM Dental Milling Centre</p>
               <h1 id="hero-title" className="hero-card__title">
-                Precision<br />Dental<br />Production
+                Precision<br />Dental<br />Milling
               </h1>
               <p className="hero-card__subtitle">
-                Quality lab work. On time. Every case.
+                High-quality crowns, bridges, implant restorations and digital dental production
+                with rapid turnaround and rigorous quality control.
               </p>
             </div>
 
             <div className="hero-card__main-image-wrap">
               <img
-                alt="Dental technicians working on precision restorations"
+                alt="Dental technicians working on precision CAD/CAM restorations"
                 className="hero-card__main-image"
                 src={centerLab}
               />
@@ -98,7 +87,7 @@ export function HomePage(): JSX.Element {
               <svg className="rotating-badge-btn__text" viewBox="0 0 100 100" aria-hidden>
                 <path d="M 50, 50 m -38, 0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0" fill="none" id="textPath" />
                 <text className="rotating-badge-btn__textpath">
-                  <textPath href="#textPath">BOOK YOUR CONSULTATION • BOOK YOUR CONSULTATION • </textPath>
+                  <textPath href="#textPath">GET A QUOTE • BOOK CONSULTATION • </textPath>
                 </text>
               </svg>
               <div className="rotating-badge-btn__center">
@@ -120,7 +109,8 @@ export function HomePage(): JSX.Element {
             <div className="hero-card__content">
               <h2 className="hero-card__title">Implant<br />Solutions</h2>
               <p className="hero-card__copy">
-                Precision implant work reviewed against your spec — delivered on time.
+                Precision implant prosthetics — custom abutments, screw-retained crowns, bridges
+                and full arch restorations across all major systems.
               </p>
             </div>
 
@@ -138,7 +128,7 @@ export function HomePage(): JSX.Element {
                   <span className="hero-metric__label">Case accuracy rate</span>
                 </div>
                 <div className="hero-metric">
-                  <span className="hero-metric__number">2,000+</span>
+                  <span className="hero-metric__number">25K+</span>
                   <span className="hero-metric__label">Cases delivered</span>
                 </div>
               </div>
@@ -162,7 +152,8 @@ export function HomePage(): JSX.Element {
             <div className="hero-card__content">
               <h2 className="hero-card__title">Dental<br />Crowns</h2>
               <p className="hero-card__copy">
-                Every crown designed for fit, durability, and a confident clinical outcome.
+                Every crown designed for fit, durability, and a confident clinical outcome — in
+                zirconia, E.max, or hybrid ceramic.
               </p>
             </div>
 
@@ -195,16 +186,21 @@ export function HomePage(): JSX.Element {
       </section>
 
       {/* ══════════════════════════════════════
-          SERVICES
+          2. TRUST METRICS — Animated Counters
+      ══════════════════════════════════════ */}
+      <TrustMetrics />
+
+      {/* ══════════════════════════════════════
+          3. SERVICES
       ══════════════════════════════════════ */}
       <section className="section shell services-section">
         <AnimateOnScroll>
           <SectionIntro
-            eyebrow="Four ways we support your practice"
-            title="Choose the help your team actually needs"
+            eyebrow="Dental production services"
+            title="Choose the help your practice needs"
           >
-            Start with one service. Add more as you grow. The relationship stays the same —
-            no rebuilding, no extra onboarding.
+            From precision dental milling and CAD design to record auditing and practice outsourcing
+            — start with one service and scale as you grow.
           </SectionIntro>
         </AnimateOnScroll>
 
@@ -228,14 +224,40 @@ export function HomePage(): JSX.Element {
       </section>
 
       {/* ══════════════════════════════════════
-          PROCESS
+          4. WHY CHOOSE MILLING WORKS
+      ══════════════════════════════════════ */}
+      <section className="section shell why-section">
+        <AnimateOnScroll>
+          <SectionIntro
+            eyebrow="Why dental practices choose us"
+            title="Eight reasons Milling Works is different"
+          >
+            We combine digital-first dental manufacturing with UK-hours communication,
+            experienced technicians and strict quality control — built for practices
+            that won't compromise.
+          </SectionIntro>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll stagger className="why-grid" threshold={0.1}>
+          {differentiators.map((item, index) => (
+            <WhyChooseCard key={item.id} item={item} index={index} />
+          ))}
+        </AnimateOnScroll>
+      </section>
+
+      {/* ══════════════════════════════════════
+          5. DIGITAL WORKFLOW (Enhanced Process)
       ══════════════════════════════════════ */}
       <section className="section process-section">
         <div className="shell">
           <AnimateOnScroll>
-            <SectionIntro eyebrow="A clear path from file to finish" title="Five steps. No mystery.">
-              Every engagement follows visible checkpoints — so your team always knows
-              what's happening and what comes next.
+            <SectionIntro
+              eyebrow="Our digital dental workflow"
+              title="Upload STL → Design → Review → Mill → QC → Ship"
+            >
+              Every case follows a traceable, six-step digital workflow — so your team always
+              knows what's happening and what comes next. Precision dental milling with full
+              visibility.
             </SectionIntro>
           </AnimateOnScroll>
           <ProcessSteps />
@@ -243,15 +265,109 @@ export function HomePage(): JSX.Element {
       </section>
 
       {/* ══════════════════════════════════════
-          TESTIMONIALS
+          6. MATERIALS
+      ══════════════════════════════════════ */}
+      <section className="section shell materials-section">
+        <AnimateOnScroll>
+          <SectionIntro
+            eyebrow="Premium dental materials"
+            title="Seven materials for every clinical need"
+          >
+            From ultra-strong zirconia crowns and translucent E.max veneers to titanium implant
+            components and biocompatible PEEK frameworks — we mill the materials that matter.
+          </SectionIntro>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll stagger className="materials-grid" threshold={0.1}>
+          {materials.map((material) => (
+            <MaterialCard key={material.id} material={material} />
+          ))}
+        </AnimateOnScroll>
+      </section>
+
+      {/* ══════════════════════════════════════
+          7. TECHNOLOGY & SOFTWARE
+      ══════════════════════════════════════ */}
+      <section className="section tech-section">
+        <div className="shell">
+          <AnimateOnScroll>
+            <SectionIntro
+              eyebrow="Compatible technology stack"
+              title="Works with your scanners and software"
+            >
+              We integrate with all major dental CAD software and intraoral scanners. Send us
+              STL files from any compatible system — Exocad, 3Shape, Medit, iTero, Sirona
+              and more.
+            </SectionIntro>
+          </AnimateOnScroll>
+
+          <AnimateOnScroll>
+            <TechGrid />
+          </AnimateOnScroll>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════
+          8. MANUFACTURING CAPABILITY
+      ══════════════════════════════════════ */}
+      <section className="section shell capability-section">
+        <AnimateOnScroll>
+          <SectionIntro
+            eyebrow="Manufacturing capability"
+            title="Built for precision at scale"
+          >
+            Our dental milling centre combines advanced 5-axis CNC technology with experienced
+            technicians and rigorous quality control — delivering consistent, accurate
+            restorations every day.
+          </SectionIntro>
+        </AnimateOnScroll>
+
+        <AnimateOnScroll>
+          <div className="capability-grid">
+            <div className="capability-card">
+              <Factory size={28} aria-hidden className="capability-card__icon" />
+              <h3>Production Capacity</h3>
+              <ul>
+                <li>Multiple 5-axis CNC milling machines</li>
+                <li>High-volume daily case capacity</li>
+                <li>Dedicated implant production line</li>
+                <li>Same-day rush production available</li>
+              </ul>
+            </div>
+            <div className="capability-card">
+              <GlobeHemisphereWest size={28} aria-hidden className="capability-card__icon" />
+              <h3>Technical Expertise</h3>
+              <ul>
+                <li>Experienced dental CAD/CAM technicians</li>
+                <li>Specialist implant restoration team</li>
+                <li>Continuous professional development</li>
+                <li>Cross-trained on all material systems</li>
+              </ul>
+            </div>
+            <div className="capability-card">
+              <SealCheck size={28} aria-hidden className="capability-card__icon" />
+              <h3>Quality Assurance</h3>
+              <ul>
+                <li>±20μm accuracy tolerance</li>
+                <li>Multi-point QC inspection protocol</li>
+                <li>Digital fit verification before dispatch</li>
+                <li>ISO-standard processes throughout</li>
+              </ul>
+            </div>
+          </div>
+        </AnimateOnScroll>
+      </section>
+
+      {/* ══════════════════════════════════════
+          9. TESTIMONIALS
       ══════════════════════════════════════ */}
       <section className="section shell testimonial-section" aria-labelledby="testimonials-title">
         <AnimateOnScroll>
           <SectionIntro
             eyebrow="From practices like yours"
-            title="What our partners say"
+            title="What our dental partners say"
           >
-            Anonymised snapshots from dental practices and labs across the UK.
+            Real feedback from dental practices and laboratories across the UK and Europe.
           </SectionIntro>
         </AnimateOnScroll>
 
@@ -279,6 +395,18 @@ export function HomePage(): JSX.Element {
               <span>Dental Laboratory · Birmingham, UK</span>
             </footer>
           </blockquote>
+
+          <blockquote className="testimonial-card">
+            <p>
+              "We outsource all our zirconia and implant work to Milling Works. The quality
+              is consistent, the digital workflow is seamless, and our patients notice the
+              difference. Highly recommend."
+            </p>
+            <footer>
+              <strong>Associate Dentist</strong>
+              <span>Multi-Site Practice · London, UK</span>
+            </footer>
+          </blockquote>
         </AnimateOnScroll>
 
         {/* Mid-page CTA */}
@@ -287,66 +415,39 @@ export function HomePage(): JSX.Element {
             <p className="mid-cta__copy">
               Ready to simplify your dental production workflow?
             </p>
-            <Link to="/contact" className="button button--accent">
-              Book a Consultation <ArrowRight aria-hidden size={18} />
-            </Link>
+            <div className="mid-cta__buttons">
+              <Link to="/contact" className="button button--accent">
+                Get a Quote <ArrowRight aria-hidden size={18} />
+              </Link>
+              <Link to="/contact#upload" className="button button--light">
+                Upload STL Files <ArrowRight aria-hidden size={18} />
+              </Link>
+            </div>
           </div>
         </AnimateOnScroll>
       </section>
 
       {/* ══════════════════════════════════════
-          PROOF / TRUST
+          10. FAQs
       ══════════════════════════════════════ */}
-      <section className="section shell proof-section">
+      <section className="section shell faq-section">
         <AnimateOnScroll>
           <SectionIntro
-            eyebrow="Built for UK &amp; European practices"
-            title="Standards your patients — and regulators — would approve"
+            eyebrow="Frequently asked questions"
+            title="Everything you need to know"
           >
-            Practical controls, compliant data handling, and direct UK-hours communication
-            are built into every engagement — not bolt-ons.
+            Quick answers about our dental milling services, materials, turnaround times,
+            scanner compatibility and digital workflows.
           </SectionIntro>
         </AnimateOnScroll>
 
-        <AnimateOnScroll stagger className="proof-grid" threshold={0.15}>
-          {proofPoints.map(({ title, copy, Icon }) => (
-            <article key={title}>
-              <div className="proof-grid__icon-wrap" aria-hidden>
-                <Icon size={26} />
-              </div>
-              <h3>{title}</h3>
-              <p>{copy}</p>
-            </article>
-          ))}
+        <AnimateOnScroll>
+          <FaqAccordionSection />
         </AnimateOnScroll>
       </section>
 
       {/* ══════════════════════════════════════
-          SUPPORT BAND
-      ══════════════════════════════════════ */}
-      <section className="support-band">
-        <div className="shell support-band__inner">
-          <AnimateOnScroll>
-            <>
-              <p className="eyebrow">Support without borders</p>
-              <h2>Made in Pune. Connected to the UK and Europe.</h2>
-              <p>
-                A 48-hour standard turnaround, UK-hours communication, and structured
-                digital handoffs make distance feel remarkably small.
-              </p>
-              <div className="trust-statements" aria-label="Partnership commitments">
-                <span>48hr Standard Turnaround</span>
-                <span>UK-Hours Support</span>
-                <span>GDPR-Compliant</span>
-                <span>Scalable Capacity</span>
-              </div>
-            </>
-          </AnimateOnScroll>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════
-          CLOSING CTA
+          11. CLOSING CTA — Multi-Action
       ══════════════════════════════════════ */}
       <div className="shell cta-wrap">
         <AnimateOnScroll>
