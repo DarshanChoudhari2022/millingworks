@@ -26,7 +26,9 @@ export function ContactPage(): JSX.Element {
             <span><MapPin aria-hidden size={22} />{company.address}</span>
           </address>
         </aside>
-        <div className="contact-experience__form"><ContactForm defaultService={defaultService} /></div>
+        <div className="contact-experience__form">
+          <ContactForm defaultService={defaultService} />
+        </div>
       </div>
     </section>
   )

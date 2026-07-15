@@ -1,7 +1,7 @@
 import { ArrowRight, LockKey, ShieldCheck } from '@phosphor-icons/react'
 import type { JSX } from 'react'
 import { Link } from 'react-router-dom'
-import auditHero from '../assets/hero-mint-grid.webp'
+import auditHero from '../assets/audit-hero.webp'
 import { RouteMetadata } from '../components/seo/RouteMetadata'
 import { EditorialHero } from '../components/ui/EditorialHero'
 import { ServiceWorkflow } from '../components/ui/ServiceWorkflow'

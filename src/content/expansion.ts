@@ -65,8 +65,9 @@ export const auditWorkflow = [
 
 export const expansionNavigation = [
   ['Home', '/'],
+  ['About', '/about'],
   ['Full-Service Dental Lab', '/full-service-dental-lab'],
   ['Dental Record Auditing', '/record-auditing'],
-  ['About', '/about'],
   ['FAQs', '/faqs'],
+  ['Contact Us', '/contact'],
 ] as const
