@@ -13,11 +13,12 @@ interface PageHeroProps {
   summary: string
   metrics?: readonly Metric[]
   children?: ReactNode
+  className?: string
 }
 
-export function PageHero({ eyebrow, title, summary, metrics, children }: PageHeroProps): JSX.Element {
+export function PageHero({ eyebrow, title, summary, metrics, children, className }: PageHeroProps): JSX.Element {
   return (
-    <header className="page-hero">
+    <header className={className ? `page-hero ${className}` : 'page-hero'}>
       <img className="page-hero__grid" src={heroGrid} alt="" />
       <div className="shell page-hero__inner">
         <div className="page-hero__copy">

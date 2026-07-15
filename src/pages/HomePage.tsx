@@ -1,4 +1,4 @@
-import { ArrowRight, EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react'
+ï»¿import { ArrowRight, EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react'
 import type { JSX } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -89,7 +89,7 @@ export function HomePage(): JSX.Element {
           <p className="eyebrow">Contact the laboratory</p>
           <h2 id="home-contact-title">Contact Info</h2>
           <p>
-            Need assistance or have a question? We’re here to provide support and review any enquiry you may have. Whether it’s a case request, partnership opportunity or general feedback, feel free to reach out.
+            Need assistance or have a question? We're here to provide support and review any enquiry you may have. Whether it's a case request, partnership opportunity or general feedback, feel free to reach out.
           </p>
           <address className="home-contact__details">
             <a href={`tel:+${company.phoneDigits}`}><Phone aria-hidden size={20} />{company.phoneDisplay}</a>

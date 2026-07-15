@@ -1,4 +1,4 @@
-export interface CompanyDetails {
+﻿export interface CompanyDetails {
   name: string
   contacts: readonly string[]
   phoneDisplay: string
@@ -17,6 +17,6 @@ export const company = {
   email: 'sales@millingworks.com',
   address:
     'Building B, Office 317, Suratwalla Mark Plazzo, S. No. 27, Mulshi, Hinjawadi, Pune 411057, India',
-  workingHours: 'Mon–Fri: 9:00 AM – 6:00 PM IST (UK hours available)',
+  workingHours: 'Mon-Fri: 9:00 AM - 6:00 PM IST (UK hours available)',
   linkedIn: 'https://www.linkedin.com/company/millingworks',
 } as const satisfies CompanyDetails
