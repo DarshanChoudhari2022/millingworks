@@ -20,7 +20,7 @@ export function ContactPage(): JSX.Element {
           <p className="eyebrow">Milling Works support</p>
           <h1 id="contact-heading">Contact <span>Us</span></h1>
           <p>Need production support, a technical discussion or a dental record audit? Share what you already have and our team will review the requirement with you.</p>
-          <address>
+          <address className="contact-experience__contact">
             <a href={`tel:+${company.phoneDigits}`}><Phone aria-hidden size={22} />{company.phoneDisplay}</a>
             <a href={`mailto:${company.email}`}><EnvelopeSimple aria-hidden size={22} />{company.email}</a>
             <span><MapPin aria-hidden size={22} />{company.address}</span>

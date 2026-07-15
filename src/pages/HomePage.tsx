@@ -1,4 +1,4 @@
-import { ArrowRight } from '@phosphor-icons/react'
+import { ArrowRight, EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react'
 import type { JSX } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -7,6 +7,7 @@ import crownsHero from '../assets/hero-crowns.webp'
 import implantsHero from '../assets/hero-implant.webp'
 import { ContactForm } from '../components/forms/ContactForm'
 import { EditorialHero } from '../components/ui/EditorialHero'
+import { company } from '../content/company'
 
 const workflow = [
   ['01', 'Share the case', 'Send the prescription and available records.'],
@@ -21,7 +22,7 @@ export function HomePage(): JSX.Element {
       <EditorialHero
         eyebrow="Milling Works dental laboratory"
         title="Dental restorations, made with intent"
-        introduction="A focused laboratory partner for crowns, bridges and implant restorations â€” with careful case review and clear communication from the outset."
+        introduction="A focused laboratory partner for crowns, bridges and implant restorations with careful case review and clear communication from the outset."
         image={homeHero}
         imageAlt="Dental laboratory technicians working on a restoration"
         variant="home"
@@ -79,7 +80,7 @@ export function HomePage(): JSX.Element {
         <h2 id="principles-title">Fewer promises. Better case communication.</h2>
         <div>
           <p>We keep the conversation centred on the prescription, the available records and the requirements of the individual restoration.</p>
-          <p>Where a case needs clarification, the right time to raise it is before production â€” not after the work is complete.</p>
+          <p>Where a case needs clarification, the right time to raise it is before production not after the work is complete.</p>
         </div>
       </section>
 
@@ -88,8 +89,13 @@ export function HomePage(): JSX.Element {
           <p className="eyebrow">Contact the laboratory</p>
           <h2 id="home-contact-title">Contact Info</h2>
           <p>
-            Need assistance or have a question? We’re here to provide support and review any enquiry you may have. Whether it’s a case request, partnership opportunity or general feedback, feel free to reach out.
+            Need assistance or have a question? We�re here to provide support and review any enquiry you may have. Whether it�s a case request, partnership opportunity or general feedback, feel free to reach out.
           </p>
+          <address className="home-contact__details">
+            <a href={`tel:+${company.phoneDigits}`}><Phone aria-hidden size={20} />{company.phoneDisplay}</a>
+            <a href={`mailto:${company.email}`}><EnvelopeSimple aria-hidden size={20} />{company.email}</a>
+            <span><MapPin aria-hidden size={20} />{company.address}</span>
+          </address>
         </div>
         <div className="home-contact__form">
           <ContactForm />
