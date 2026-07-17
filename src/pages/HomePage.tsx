@@ -19,36 +19,36 @@ const workflow = [
 
 const onboardingSteps = [
   {
-    title: 'Try our service at no cost',
+    title: 'No-cost pilot submission',
     points: [
-      'Share up to 5 samples for a pilot run.',
-      'We process the samples and share expected timelines.',
-      'Timeline can vary based on case type and volume.',
-      'Complete a quality check before moving ahead.',
-      'Proceed only when you are fully satisfied.',
+      'Submit up to five samples for an initial pilot run.',
+      'The laboratory processes each sample and shares an expected completion timeline.',
+      'Turnaround estimates vary by case type, complexity and volume.',
+      'A full quality review is completed before production onboarding.',
+      'You may proceed to recurring work only after satisfactory evaluation.',
     ],
   },
   {
-    title: 'Billing and invoicing',
+    title: 'Billing and invoicing policy',
     points: [
-      'Work is managed in 30-day cycles.',
-      'Rate card is shared at the start of the cycle.',
-      'Invoice is shared at month-end.',
-      'Payment can be completed within the next 30 days.',
+      'Work is managed in standard 30-day billing cycles.',
+      'A rate card is shared at the beginning of the engagement.',
+      'Invoices are issued at the close of each month.',
+      'Payment is due within 30 days of invoice date.',
     ],
   },
   {
-    title: 'Audit review',
+    title: 'Audit and page visibility controls',
     points: [
-      'Audit-related pages can be removed or hidden as needed.',
-      'We align visibility with your internal process and compliance needs.',
+      'Audit-related sections can be removed or hidden when required.',
+      'Page visibility is aligned with your internal governance and compliance process.',
     ],
   },
   {
-    title: 'Image updates',
+    title: 'Image and media updates',
     points: [
-      'Keep website visuals simple and clean.',
-      'Hide specific photos or replace them on request.',
+      'Visual presentation can be simplified for a clean and professional appearance.',
+      'Specific photos can be hidden, replaced or updated on request.',
     ],
   },
 ] as const
@@ -124,7 +124,7 @@ export function HomePage(): JSX.Element {
       <section className="home-onboard-trial shell" aria-labelledby="home-onboard-trial-title">
         <p className="eyebrow">Sampling · Pilot · No Cost</p>
         <h2 id="home-onboard-trial-title">Onboard Trial</h2>
-        <p>Start with baby steps. Try our service at no cost and evaluate quality before committing to full monthly work.</p>
+        <p>Begin with a structured no-cost pilot to evaluate process reliability, timeline transparency and final quality prior to monthly engagement.</p>
 
         <div className="home-onboard-trial__grid">
           {onboardingSteps.map((step, index) => (
@@ -145,7 +145,7 @@ export function HomePage(): JSX.Element {
         <div className="home-faq__intro">
           <p className="eyebrow">Frequently asked questions</p>
           <h2 id="home-faq-title">FAQs</h2>
-          <p>Quick answers on services, sampling, timelines, billing and case handoff.</p>
+          <p>Clear guidance on onboarding, case submissions, timelines, billing and quality standards.</p>
         </div>
         <FaqAccordionSection />
       </section>
