@@ -1,14 +1,70 @@
-export type FaqGroup = 'Services' | 'Case Submission' | 'Process' | 'Delivery' | 'Pricing' | 'Privacy'
+export type FaqGroup = 'General'
 
-export interface FaqItem { group: FaqGroup; question: string; answer: string }
+export interface FaqItem {
+  group: FaqGroup
+  question: string
+  answer: string
+}
 
 export const faqs: FaqItem[] = [
-  { group: 'Services', question: 'What does Milling Works do?', answer: 'Milling Works is a dental laboratory focused on crowns, bridges and implant restorations for dental practices and partner laboratories.' },
-  { group: 'Services', question: 'Can you review an implant case before production?', answer: 'Yes. Share the prescription and available case records so the laboratory can review the information and identify questions before work begins.' },
-  { group: 'Case Submission', question: 'How do I send a case?', answer: 'Start with the contact form, email or WhatsApp handoff. Tell us which records you have and a team member can confirm the appropriate submission route.' },
-  { group: 'Case Submission', question: 'Which records should I include?', answer: 'Requirements depend on the restoration. Share the prescription and the records already available; the laboratory will confirm if anything else is needed for review.' },
-  { group: 'Process', question: 'What happens after a case is received?', answer: 'The case information is reviewed first. Questions are resolved before the restoration moves through production, finishing, quality review and dispatch.' },
-  { group: 'Delivery', question: 'How long will my case take?', answer: 'Timing depends on the restoration, records and case requirements. The expected schedule is discussed once the laboratory has reviewed the case.' },
-  { group: 'Pricing', question: 'How do I request pricing?', answer: 'Share the case type and requirements. Milling Works will review the scope and prepare the appropriate quotation.' },
-  { group: 'Privacy', question: 'How should patient information be handled?', answer: 'Only share information needed for the laboratory work through an agreed route. Contact the team before sending sensitive records if you need guidance.' },
+  {
+    group: 'General',
+    question: 'What does NVistas do?',
+    answer:
+      'NVistas provides specialist support services for dental teams, including dental record auditing, clinical governance support, compliance-focused training, and advisory support designed to improve documentation quality and patient safety processes.',
+  },
+  {
+    group: 'General',
+    question: 'Who can use NVistas services?',
+    answer:
+      'Our services are designed for dental practices, dental groups, and professionals looking to strengthen record quality, compliance readiness, and operational governance in day-to-day workflows.',
+  },
+  {
+    group: 'General',
+    question: 'What is included in a dental record audit?',
+    answer:
+      'A typical audit includes a structured review of selected dental records against agreed criteria, identification of documentation gaps, trend analysis, and a practical report with recommendations for improvement.',
+  },
+  {
+    group: 'General',
+    question: 'How often should dental records be audited?',
+    answer:
+      'Audit frequency depends on your clinic size, risk profile, and regulatory expectations. Many practices choose periodic audits to maintain consistency and identify issues early, but the schedule should fit your governance plan.',
+  },
+  {
+    group: 'General',
+    question: 'Do you provide compliance support for CQC and HIQA standards?',
+    answer:
+      'Yes. NVistas supports dental organisations with documentation and governance reviews aligned to relevant standards, including CQC and HIQA-focused expectations where applicable.',
+  },
+  {
+    group: 'General',
+    question: 'Can NVistas help with staff training needs?',
+    answer:
+      'Yes. Audit findings can highlight recurring documentation issues, and we provide guidance that helps teams target training where it is likely to have the greatest operational impact.',
+  },
+  {
+    group: 'General',
+    question: 'How do you keep dental data secure?',
+    answer:
+      'We use agreed secure transfer and handling routes, limit access based on role, and follow documented information-governance processes to protect sensitive data throughout the review workflow.',
+  },
+  {
+    group: 'General',
+    question: 'Do your services replace legal or clinical advice?',
+    answer:
+      'No. Our services provide operational and documentation-focused support. They do not replace legal advice, regulatory interpretation, diagnosis, or independent clinical judgement.',
+  },
+  {
+    group: 'General',
+    question: 'Can small practices request support, or is it only for large groups?',
+    answer:
+      'Both can engage. We work with independent practices as well as larger groups, and the scope can be tailored to your size, priorities, and current governance maturity.',
+  },
+  {
+    group: 'General',
+    question: 'How do we get started with NVistas?',
+    answer:
+      'You can start by contacting the team with your current requirements. We will discuss your objectives, agree scope, and define a practical delivery plan for your audit or governance support needs.',
+  },
 ]
