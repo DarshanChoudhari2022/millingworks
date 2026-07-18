@@ -20,12 +20,12 @@ export const appRoutes: RouteObject[] = [
       { path: '/crowns-bridges', element: <CrownsBridgesPage /> },
       { path: '/dental-implants', element: <DentalImplantsPage /> },
       { path: '/full-service-dental-lab', element: <FullServiceDentalLabPage /> },
-      { path: '/record-auditing', element: <DentalRecordAuditingPage /> },
       { path: '/faqs', element: <FaqPage /> },
       { path: '/contact', element: <ContactPage /> },
       /* Redirects for removed pages */
       { path: '/dental-lab', element: <Navigate to="/full-service-dental-lab" replace /> },
       { path: '/services', element: <Navigate to="/full-service-dental-lab" replace /> },
+      { path: '/record-auditing', element: <Navigate to="/full-service-dental-lab" replace /> },
       { path: '*', element: <NotFoundPage /> },
     ],
   },

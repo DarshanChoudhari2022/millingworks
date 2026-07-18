@@ -1,4 +1,4 @@
-﻿import { ArrowRight, EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react'
+import { ArrowRight, EnvelopeSimple, MapPin, Phone } from '@phosphor-icons/react'
 import type { JSX } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -141,15 +141,6 @@ export function HomePage(): JSX.Element {
         </div>
       </section>
 
-      <section className="home-faq shell" aria-labelledby="home-faq-title">
-        <div className="home-faq__intro">
-          <p className="eyebrow">Frequently asked questions</p>
-          <h2 id="home-faq-title">FAQs</h2>
-          <p>Clear guidance on onboarding, case submissions, timelines, billing and quality standards.</p>
-        </div>
-        <FaqAccordionSection />
-      </section>
-
       <section className="home-contact shell" aria-labelledby="home-contact-title">
         <div className="home-contact__intro">
           <p className="eyebrow">Contact the laboratory</p>
@@ -166,6 +157,15 @@ export function HomePage(): JSX.Element {
         <div className="home-contact__form">
           <ContactForm />
         </div>
+      </section>
+
+      <section className="home-faq shell" aria-labelledby="home-faq-title">
+        <div className="home-faq__intro">
+          <p className="eyebrow">Frequently asked questions</p>
+          <h2 id="home-faq-title">FAQs</h2>
+          <p>Clear guidance on onboarding, case submissions, timelines, billing and quality standards.</p>
+        </div>
+        <FaqAccordionSection />
       </section>
 
     </>

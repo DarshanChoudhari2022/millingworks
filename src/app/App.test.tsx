@@ -33,7 +33,7 @@ describe('application routes', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'About Milling Works' }),
+      screen.getByRole('heading', { name: 'Precision built on partnership' }),
     ).toBeInTheDocument()
     expect(container.querySelectorAll('main')).toHaveLength(1)
   })
