@@ -67,6 +67,6 @@ export const expansionNavigation = [
   ['Home', '/'],
   ['About', '/about'],
   ['Full-Service Dental Lab', '/full-service-dental-lab'],
-  ['Dental Record Auditing', '/record-auditing'],
+ 
   ['FAQs', '/faqs'],
 ] as const

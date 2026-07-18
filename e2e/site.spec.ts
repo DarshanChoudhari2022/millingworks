@@ -6,7 +6,7 @@ const routes = [
   '/crowns-bridges',
   '/dental-implants',
   '/dental-lab',
-  '/record-auditing',
+  
   '/faqs',
   '/contact',
   '/route-that-does-not-exist',

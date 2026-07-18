@@ -38,16 +38,7 @@ describe('interior pages', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'Production support across the complete case journey' })).toBeInTheDocument()
   })
 
-  it('renders the dental record auditing service page', () => {
-    render(
-      <MemoryRouter initialEntries={['/record-auditing']}>
-        <App />
-      </MemoryRouter>,
-    )
-
-    expect(screen.getByRole('heading', { level: 1, name: 'Clearer records. Stronger clinical governance.' })).toBeInTheDocument()
-  })
-
+ 
   it('uses native buttons and exposes accordion state', () => {
     render(
       <MemoryRouter initialEntries={['/faqs']}>
